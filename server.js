@@ -6,8 +6,18 @@
 // SERVER_PORT is the serverport the app will run on for local host.
 var express = require('express');
 var app = express();
+var nunjucks = require('nunjucks');
 
 var SERVER_PORT = 3000;
+
+// Nunjucks view engine setup
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app,
+  watch: true,
+});
+
+// app.set('view engine', 'html');
 
 // Set path for routes to check for static files(html/css/javascript) in
 // the public folder
