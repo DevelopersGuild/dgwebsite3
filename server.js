@@ -3,13 +3,18 @@
 
 // Configuration/requirement modules.
 // these files are located in the package.json
+// SERVER_PORT is the serverport the app will run on for local host.
 var express = require('express');
 var app = express();
 var SERVER_PORT = 3000;
 
+// Set path for routes to check for static files(html/css/javascript) in
+// the public folder
+app.use(express.static('public'));
+
 // Route localhost:3000 and send the text 'Page is here' to the client
 app.get('/', function(req, res) {
-  res.send('Page is here');
+  res.render('index.js');
 });
 
 // Listen on port 3000. and display in the terminal 'app running on port 3000'
