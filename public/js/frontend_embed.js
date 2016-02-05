@@ -4,7 +4,7 @@ var a = 1;
 
 var b = 2;
 
-var operand = "plus";
+var operation = "plus";
 
 function runOp(x,y,operand){
   var result;
@@ -14,4 +14,4 @@ function runOp(x,y,operand){
   return result;
 }
 
-document.getElementById("calculator").innerHTML = runOp(a,b, operand);
+document.getElementById("calculator").innerHTML = runOp(a,b, operation);
