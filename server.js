@@ -18,9 +18,6 @@ nunjucks.configure('views', {
 });
 
 // Set the directory for the server to look for view pages.
-// can be an array of directories.
-// app.set('views', [Array of Directory Strings])
-// similar to app.use(express.static(...)) but explictily for view pages.
 app.set('views', 'views');
 
 // setting the view engine sets the default extension to use
@@ -39,6 +36,7 @@ app.get('/', function(req, res) {
 app.get('/second', function(req, res) {
   res.render('second');
 });
+
 // Listen on port 3000. and display in the terminal 'app running on port 3000'
 // if its working.
 // app will be running on localhost:3000
