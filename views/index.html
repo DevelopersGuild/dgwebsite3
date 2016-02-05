@@ -1,7 +1,17 @@
-<link rel="stylesheet" href="css/main.css">
+{% extends "parent.html" %}
 
-<h1>Hello World</h1><br/>
-<h2>This is an embed</h2>
-The result of the complex calculation of 1+2 is <div id="calculator"></div>
-<script src="js/frontend_embed.js"></script>
-This is a link in <a href="second.html">second page</a>
+  {% block main %}
+  This is the main content!
+
+  <h1>Hello World</h1>
+  <h2>This is an embed</h2>
+  The result of the complex calculation of 1+2 is <div id="calculator"></div>
+  <script src="js/frontend_embed.js"></script>
+  This is a link in <a href="second.html">second page</a>
+
+  {% endblock %}
+
+  {% block footer %}
+  <br/>
+  This is the footer content from the child index.html!
+  {% endblock %}

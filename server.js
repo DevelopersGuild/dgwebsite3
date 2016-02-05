@@ -17,13 +17,13 @@ nunjucks.configure('views', {
   watch: true,
 });
 
-// app.set('view engine', 'html');
+app.set('view engine', 'html');
+
+app.set('views', 'views');
 
 // Set path for routes to check for static files(html/css/javascript) in
 // the public folder
 app.use(express.static('public'));
-
-app.use(express.static('views'));
 
 // Route localhost:3000 and send the text 'Page is here' to the client
 app.get('/', function(req, res) {
