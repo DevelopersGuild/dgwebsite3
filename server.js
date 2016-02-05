@@ -17,12 +17,12 @@ nunjucks.configure('views', {
   watch: true,
 });
 
-// Set the directory for the server to look for view pages.
+
+
+app.set('view engine', 'html');
+
 app.set('views', 'views');
 
-// setting the view engine sets the default extension to use
-// if an extension is omitted.
-app.set('view engine', 'html');
 
 // Set path for routes to check for static files(html/css/javascript) in
 // the public folder

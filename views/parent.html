@@ -1,7 +1,24 @@
+
+<link rel="stylesheet" href="css/main.css">
+
+<head>
+<title>This is TITLE TITLE</title>
+</head>
+
 {% block header %}
-This is the default content
+This is the header content from parent.html
 {% endblock %}
 
-<section class="left">
-  {% block left %}{% endblock %}
+<body>
+
+<section class="main">
+  {% block main %}{% endblock %}
 </section>
+
+<section class="footer">
+  {% block footer %}
+  This is the footer content in parnet.html
+  {% endblock %}
+</section>
+
+</body>
