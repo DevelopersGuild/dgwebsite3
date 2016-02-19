@@ -7,8 +7,33 @@
 var express = require('express');
 var app = express();
 var nunjucks = require('nunjucks');
+var https = require("https"); // for doing the http get
 
 var SERVER_PORT = 3000;
+
+var importantValue = "";
+
+// Pull README.md from GitHUB
+var options = {
+  host: 'raw.githubusercontent.com',
+  port: 443,
+  path: '/DevelopersGuild/dgwebsite2/master/README.md',
+  method: 'GET'
+};
+
+var req = https.request(options, function(res) {
+  console.log(res.statusCode);
+  res.on('data', function(d) {
+    importantValue += d;
+  });
+});
+
+req.end();
+
+req.on('error', function(e) {
+  console.error(e);
+});
+
 
 // Nunjucks view engine setup
 nunjucks.configure('views', {
@@ -27,7 +52,9 @@ app.use(express.static('public'));
 
 // Route localhost:3000 and send the text 'Page is here' to the client
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index',{
+    importantValue: importantValue
+  });
 });
 
 // Listen on port 3000. and display in the terminal 'app running on port 3000'
