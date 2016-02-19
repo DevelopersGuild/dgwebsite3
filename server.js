@@ -8,6 +8,7 @@ var express = require('express');
 var app = express();
 var nunjucks = require('nunjucks');
 var https = require("https"); // for doing the http get
+var markdown = require( "markdown" ).markdown;
 
 var SERVER_PORT = 3000;
 
@@ -34,6 +35,8 @@ req.on('error', function(e) {
   console.error(e);
 });
 
+// html_content = markdown.toHTML( importantValue );
+// console.log( markdown.toHTML( importantValue ) );
 
 // Nunjucks view engine setup
 nunjucks.configure('views', {
@@ -55,8 +58,9 @@ app.use(express.static('public'));
 
 // Route localhost:3000 and send the text 'Page is here' to the client
 app.get('/', function(req, res) {
+  html_content = markdown.toHTML( importantValue );
   res.render('index',{
-    importantValue: importantValue
+    importantValue: html_content
   });
 });
 
