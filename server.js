@@ -9,7 +9,8 @@ var app = express();
 var nunjucks = require('nunjucks');
 var https = require("https"); // for doing the http get
 var markdown = require( "markdown" ).markdown;
-
+var request = require('request');
+var async = require('async');
 var SERVER_PORT = 3000;
 
 var importantValue = "";
@@ -63,6 +64,91 @@ app.get('/', function(req, res) {
     importantValue: html_content
   });
 });
+
+app.get('/repos', function(req, res) {
+  // var URL = 'https://raw.githubusercontent.com' +
+  //           '/DevelopersGuild/dgwebsite2/master/README.md';
+  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos';
+
+  var reqOptions = {
+    url: URL,
+    headers: {
+      'User-Agent' : 'BlueAccords'
+    }
+  };
+
+  request(reqOptions, function (err, response, body) {
+
+    if (err || response.statusCode !== 200) {
+      return res.send(err);
+    }
+
+    body = JSON.parse(body);
+    // console.log(body);
+    var repoList = [];
+    var urlArr = [];
+
+    for(var item in body) {
+      var repoURL = "";
+      // console.log(body[item].full_name);
+      repoURL = 'https://raw.githubusercontent.com/' + (body[item].full_name +
+                '/master/README.md');
+      // getRepoReadMe(repoURL);
+      urlArr.push(repoURL);
+    }
+
+    // console.log(urlArr);
+
+    var htmlBody = "";
+
+    async.each(urlArr,
+      function(item, cb) {
+        console.log('itemname:');
+        console.log(item);
+        getRepoReadMe(item, function(body) {
+          if(body !== null) {
+            repoList.push(body);
+          }
+
+          cb();
+        });
+      }, function done(){
+        console.log('fullRepoList =');
+        // console.log(repoList);
+        console.log('replist size = ' + repoList.length);
+        res.render('index', { importantValue : repoList });
+      });
+
+    });
+  });
+
+
+// Gets a Repo's README
+// @url; the url for the api call on github
+// @done; the callback to call when the api call is done.
+//  Also returns null or the html body of the readme
+function getRepoReadMe(url, done) {
+  console.log('API CALL');
+
+  var reqOptions = {
+    url: url,
+    headers: {
+      'User-Agent' : 'BlueAccords'
+    }
+  };
+
+  request(reqOptions, function (err, response, body) {
+
+    if (err || response.statusCode !== 200) {
+      console.log(err);
+      return done(null);
+    }
+
+    body = markdown.toHTML( body );
+
+    done(body);
+  });
+}
 
 app.get('/second', function(req, res) {
   res.render('second');
