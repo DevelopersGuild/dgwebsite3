@@ -1,3 +1,7 @@
 #calculator {
 display: inline;
 }
+
+#dgtemp {
+  background-color: #999;
+}
