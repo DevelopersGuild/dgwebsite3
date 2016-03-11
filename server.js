@@ -66,6 +66,49 @@ app.get('/', function(req, res) {
 });
 
 app.get('/repos', function(req, res) {
+
+  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos';
+
+  var reqOptions = {
+    url: URL,
+    headers: {
+      'User-Agent' : 'BlueAccords'
+    }
+  };
+  var nameArr = [];
+
+  request(reqOptions, function (err, response, body) {
+
+    if (err || response.statusCode !== 200) {
+      return res.send(err);
+    }
+
+    body = JSON.parse(body);
+    // console.log(body);
+    var repoList = [];
+    var urlArr = [];
+    var nameArr = [];
+
+    for(var item in body) {
+      var repoURL = "";
+      // console.log(body[item].full_name);
+      repoURL = 'https://raw.githubusercontent.com/' + (body[item].full_name +
+                '/master/README.md');
+      // getRepoReadMe(repoURL);
+      // urlArr.push(repoURL);
+      nameArr.push(body[item].name);
+    }
+
+    res.render('repoList', {
+      projects: nameArr,
+    });
+
+    });
+
+
+});
+
+app.get('/repoList', function(req, res) {
   // var URL = 'https://raw.githubusercontent.com' +
   //           '/DevelopersGuild/dgwebsite2/master/README.md';
   var URL = 'https://api.github.com/orgs/DevelopersGuild/repos';
@@ -87,6 +130,7 @@ app.get('/repos', function(req, res) {
     // console.log(body);
     var repoList = [];
     var urlArr = [];
+    var nameArr = [];
 
     for(var item in body) {
       var repoURL = "";
@@ -95,6 +139,7 @@ app.get('/repos', function(req, res) {
                 '/master/README.md');
       // getRepoReadMe(repoURL);
       urlArr.push(repoURL);
+      nameArr.push(body[item].name);
     }
 
     // console.log(urlArr);
