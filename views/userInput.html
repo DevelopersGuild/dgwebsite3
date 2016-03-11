@@ -2,36 +2,96 @@
 <html>
 	<head>
 		<title>Project Page Template</title>
-		<link rel="stylesheet" type="text/css" href="pagetemplate.css">
+		<link rel="stylesheet" type="text/css" href="userInput.css">
 		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="bootstrap.css">
 	</head>
 
 	<body>
 		<div class="container">
-			<center>
 				<div class="opening">
-					<h1>Category - Web Application</h1>
-					<br/>
-					<h2>Project Name - Novum Julian</h2>
-					<br/>
+					<!-- Input project title - need to use Javascript? to clear the default text when user types on it-->
+					<center>
+						<h1>Your Project Info</h1>
+					</center>
+
+					<h3>Project Title</h3>
+					<textarea name="projectTitle" rows="2" cols="50">
+					Project title
+					</textarea>
+
+					<!-- Input project category -->
+					<form action="#">
+						<h3>Project Category</h3>
+						<select name="projectCategory">
+							<option value="iosApps">Android Game</option>
+							<option value="iosApps">C++ Games (Beginner)</option>
+							<option value="iosApps">C++ Games (Advanced)</option>
+							<option value="iosApps">C# Games (Advanced)</option>
+							<option value="iosApps">iOS App</option>
+							<option value="iosApps">Intro to Web</option>
+							<option value="iosApps">Web App (Intermediate)</option>
+							<option value="iosApps">Book study</option>
+							<!-- add category -->
+							<option value="iosApps">Add another category</option>
+						</select>
+					</form>
+					<br>
+				
+				
+
+					<!-- Attach link of video or image -->
+					<h3>Video URL or image of the project</h3>
+
+					<form>
+					  	Project Title<br>
+					  	<input type="text" name="firstname"><br>					
+					</form>
+
+					<form action="#.php" method="post" enctype="multipart/form-data">
+	    			Select image to upload:
+	    			<input type="file" name="fileToUpload" id="fileToUpload">
+	    			
+					</form>
+
 					
+
+					<!-- <FORM METHOD="post" ACTION="mailto:guild@dg.co.dg" ENCTYPE="multipart/form-data"> 
+	Attachment: <INPUT TYPE="file" NAME="attachedfile" MAXLENGTH=50 ALLOW="text/*" > 
+	</FORM>
+
+	<input type="submit" value="Upload Image" name="submit">
+	 -->
+
+					
+
+					<br><br>
+					<h2>Description</h2>
+
+				<div class="projectDescription">
+					<h3>Project Title</h3>
+					<textarea name="projectTitle" rows="2" cols="50">
+					Here Type your project title
+					</textarea>
+					
+					<br>
+
+					<h3>Project Description</h3>
+					<textarea name="projectDesc" rows="4" cols="80">
+					Type your project description
+					</textarea>
 				</div>
 
-				<div class="video">
-					<img src="http://i.imgur.com/3rksyD3.jpg" alt="Project video" style="width: 500px; height: 250px"/>
-				</div>
-
-				<br/><br/><br/>
-				<h2>Description</h2>
-
-			<div class="projectDescription">
-				{{content | safe}}
+		 	
 			</div>
+
 
 			<br/>
 			<h3>Group Members</h3>
+			<center>
 			</center>
+
+
 
 			<!-- Have this for the number of members in the group -->
 
@@ -56,7 +116,7 @@
 									</table>
 								</td>
 							</tr>
-
+							
 						</table>
 				</div>
 
@@ -80,7 +140,32 @@
 									</table>
 								</td>
 							</tr>
-
+							
+						</table>
+				</div>
+				
+					
+				<div class="profile">
+						<!-- Have one row with two colums. Second column has 3 rows -->
+						<table class="profileTable" border="0" style="height:250px">
+							<tr>
+								<!-- possibly center later -->
+								<td width="30%"><div class="profilepicture"></div></td>
+								<td style="vertical-align:top">
+									<table border="0" style="width:100%;">
+										<tr>
+											<td style="height:40px; vertical-align:bottom"><b>Johnny K</b></td>
+										</tr>
+										<tr>
+											<td style="height:40px"><b>Computer Science</b></td>
+										</tr>
+										<tr>
+											<td style="height:170px; text-align:center"><center><i>"It was a great learning experience"</i></center></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							
 						</table>
 				</div>
 
@@ -104,31 +189,7 @@
 									</table>
 								</td>
 							</tr>
-
-						</table>
-				</div>
-
-				<div class="profile">
-						<!-- Have one row with two colums. Second column has 3 rows -->
-						<table class="profileTable" border="0" style="height:250px">
-							<tr>
-								<!-- possibly center later -->
-								<td width="30%"><div class="profilepicture"></div></td>
-								<td style="vertical-align:top">
-									<table border="0" style="width:100%;">
-										<tr>
-											<td style="height:40px; vertical-align:bottom"><b>Johnny K</b></td>
-										</tr>
-										<tr>
-											<td style="height:40px"><b>Computer Science</b></td>
-										</tr>
-										<tr>
-											<td style="height:170px; text-align:center"><center><i>"It was a great learning experience"</i></center></td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-
+							
 						</table>
 				</div>
 			</div>
