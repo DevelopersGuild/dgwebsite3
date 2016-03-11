@@ -16,7 +16,7 @@
 ## Front End Pages
 * Index page
     * lists all of the projects
-    * (optional) lists them by feature
+    * (optional) lists them by category
 * Create New Project Form page
   * Includes forms for the `Front End Info` listed above
   * (optional) use a WYSIWYG(What you see is what you get) editor
