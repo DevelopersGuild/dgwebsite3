@@ -26,3 +26,13 @@
 * Individual Project
   * Includes the `Front End Info` listed above.
   * Uses the existing work already done for individual pages.
+
+## User Stories  
+
+### User story 1
+  1. User Logins via OAuth + Github(no username/password necessary)
+  2. User clicks on new project button
+  3. User fills in forms for project information(create)
+  4. User submits information
+  5. Information is validated and saved to database
+  6. User is redirected to their project page(view)
