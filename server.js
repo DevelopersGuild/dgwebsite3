@@ -96,16 +96,38 @@ app.get('/repos', function(req, res) {
                 '/master/README.md');
       // getRepoReadMe(repoURL);
       // urlArr.push(repoURL);
-      nameArr.push(body[item].name);
+      nameArr.push({
+        name: body[item].name,
+        // url: body[item].full_name,
+        url: body[item].name
+      });
     }
 
     res.render('repoList', {
       projects: nameArr,
     });
-
     });
+});
 
+app.get('/repos/:repo', function(req, res) {
+  // https://raw.githubusercontent.com/DevelopersGuild/ArrayBall/master/README.md
 
+  var url = 'https://raw.githubusercontent.com/DevelopersGuild/' + req.params.repo +
+              '/master/README.md';
+
+  console.log('url = ' + url);
+
+  getRepoReadMe(url, function(readme) {
+    if(readme !== null) {
+      res.render('pagetemplate', {
+        content: readme
+      });
+    } else {
+      res.render('pagetemplate', {
+        content: 'NOT FOUND',
+      });
+    }
+  });
 });
 
 app.get('/repoList', function(req, res) {
