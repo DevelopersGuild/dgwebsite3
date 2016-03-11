@@ -38,7 +38,7 @@
 * Includes forms for the `Front End Info` listed above
 * Additionally, includes a delete button.
 * (optional) theme/color scheme picker  
-*
+
 #### Individual Project page  
 
 * Permissions
