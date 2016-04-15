@@ -65,7 +65,7 @@ Temporary Items
 .apdisk
 
 # JetBrains
-.idea
+/.idea
 
 ### Windows ###
 # Windows image file caches
