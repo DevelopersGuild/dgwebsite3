@@ -99,7 +99,7 @@ app.get('/repos', function(req, res) {
       nameArr.push({
         name: body[item].name,
         // url: body[item].full_name,
-        url: body[item].name
+        url: "/repos/" + body[item].name
       });
     }
 
