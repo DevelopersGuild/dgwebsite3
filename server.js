@@ -9,14 +9,6 @@ var app = express();
 var nunjucks = require('nunjucks');
 var SERVER_PORT = 3000;
 
-// Pull README.md from GitHUB
-var options = {
-  host: 'raw.githubusercontent.com',
-  port: 443,
-  path: '/DevelopersGuild/dgwebsite2/master/README.md',
-  method: 'GET'
-};
-
 // Nunjucks view engine setup
 nunjucks.configure('views', {
   autoescape: true,
