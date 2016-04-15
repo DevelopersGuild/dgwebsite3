@@ -9,8 +9,6 @@ var app = express();
 var nunjucks = require('nunjucks');
 var SERVER_PORT = 3000;
 
-var importantValue = "";
-
 // Pull README.md from GitHUB
 var options = {
   host: 'raw.githubusercontent.com',
@@ -38,7 +36,9 @@ app.set('views', 'views');
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.render('second');
+  res.render('second', { 
+    care: "nunjucks variable"
+    });
 });
 
 // Listen on port 3000. and display in the terminal 'app running on port 3000'
