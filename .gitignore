@@ -64,6 +64,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# JetBrains
+.idea
 
 ### Windows ###
 # Windows image file caches
