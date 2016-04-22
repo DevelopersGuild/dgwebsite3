@@ -5,6 +5,9 @@ var express = require('express');
 
 var router = express.Router();
 
+// Controller for repositories
+var repositories = require('./controllers/repositories');
+
 // Root route
 router.get('/', function(req, res) {
     res.render('second', {
