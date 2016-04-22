@@ -3,8 +3,10 @@
 
 // Requirement modules
 var express = require('express');
-var app = express();
 var nunjucks = require('nunjucks');
+
+var app = express();
+var routes = require('./routes');
 
 // SERVER_PORT is the serverport the app will run on for local host.
 var SERVER_PORT = 3000;
@@ -19,14 +21,11 @@ app.set('view engine', 'html');
 
 app.set('views', 'views');
 
-// Set path for routes
+// Set path for assets
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-  res.render('second', { 
-    care: "nunjucks variable"
-    });
-});
+// Use routes path in express app
+app.use(routes);
 
 // Listen on port 3000
 app.listen(SERVER_PORT, function() {
