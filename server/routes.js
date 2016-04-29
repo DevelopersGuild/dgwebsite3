@@ -16,22 +16,10 @@ router.get('/', function(req, res) {
 });
 
 // Route for list of repositories
-router.get('/repositories', function(req, res) {
-    // TODO: repo list code goes here
-
-    res.render('./repositories/index.html', {
-        lol: 'l0ool'
-    });
-});
+router.get('/repositories', repositories.getRepoList);
 
 // Route for individual repository pages
-router.get('/repositories/:id', function(req, res) {
-    // TODO: specific repo code goes here
-
-    res.render('./repositories/show.html', {
-        lmao: 'Ayy lmao'
-    })
-});
+router.get('/repositories/:id', repositories.getRepository);
 
 // Export routes
 module.exports = router;
