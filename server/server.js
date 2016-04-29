@@ -5,11 +5,25 @@
 var express = require('express');
 var nunjucks = require('nunjucks');
 
+// mongodb ORM
+var mongoose = require('mongoose');
+
 var app = express();
 var routes = require('./routes');
 
 // SERVER_PORT is the serverport the app will run on for local host.
 var SERVER_PORT = 3000;
+
+
+// Connect to database
+// Output error to database if error occurs
+// On open output success message to console
+mongoose.connect(process.env.db_development);
+db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log('db is connected to mongodb')
+});
 
 // Nunjucks view engine setup
 nunjucks.configure('./client/views', {
