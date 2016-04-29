@@ -1,7 +1,7 @@
 // Repositories controller for GitHub integration
 'use strict';
 
-var getRepositoryList = function() {
+exports.getRepositoryList = function(req, res) {
     // TODO: get list of repositories with URLs
     
   var URL = 'https://api.github.com/orgs/DevelopersGuild/repos';
@@ -40,15 +40,16 @@ var getRepositoryList = function() {
       });
     }
 
-    res.render('repoList', {
-      projects: nameArr,
-    });
+    // res.render('repoList', {
+    //   projects: nameArr,
+    // });
+    next(nameArr);
   });
 };
 
-var getRepository = function(repo) {
+var getRepository = function(req, res) {
     // TODO: get individual repository object
-    var url = 'https://raw.githubusercontent.com/DevelopersGuild/' + repo +
+    var url = 'https://raw.githubusercontent.com/DevelopersGuild/' + req.params.id +
               '/master/README.md';
 
   console.log('url = ' + url);
