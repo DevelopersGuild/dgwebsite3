@@ -12,14 +12,15 @@ var routes = require('./routes');
 var SERVER_PORT = 3000;
 
 // Nunjucks view engine setup
-nunjucks.configure('views', {
+nunjucks.configure('./client/views', {
   express: app,
   watch: true,
 });
 
 app.set('view engine', 'html');
 
-app.set('views', 'views');
+// App currently works without this somehow
+//app.set('views', './client/views');
 
 // Set path for assets
 app.use(express.static('public'));
