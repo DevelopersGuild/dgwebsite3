@@ -65,3 +65,30 @@ var getRepository = function(repo) {
     }
   });
 };
+
+// Gets a Repo's README
+// @url; the url for the api call on github
+// @done; the callback to call when the api call is done.
+//  Also returns null or the html body of the readme
+function getRepoReadMe(url, done) {
+  console.log('API CALL');
+
+  var reqOptions = {
+    url: url,
+    headers: {
+      'User-Agent' : 'BlueAccords'
+    }
+  };
+
+  request(reqOptions, function (err, response, body) {
+
+    if (err || response.statusCode !== 200) {
+      console.log(err);
+      return done(null);
+    }
+
+    body = markdown.toHTML( body );
+
+    done(body);
+  });
+}
