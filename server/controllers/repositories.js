@@ -16,7 +16,7 @@ exports.getRepoList = function(req, res) {
       'User-Agent' : 'BlueAccords'
     }
   };
-  
+
   var nameArr = [];
 
   request(reqOptions, function (err, response, body) {
@@ -50,6 +50,32 @@ exports.getRepoList = function(req, res) {
     });
   });
 };
+
+exports.saveRepo = function(req, res) {
+  var URL = 'https://api.github.com/users/DevelopersGuild/' + req.params.id;
+
+  var reqOptions = {
+    url: URL,
+    headers: {
+      'User-Agent' : 'BlueAccords'
+    }
+  };
+
+
+  request(reqOptions, function (err, response, body) {
+
+    if (err || response.statusCode !== 200) {
+      return res.send(err);
+    }
+
+    body = JSON.parse(body);
+    console.log(body);
+
+    res.render('repoList');
+  });
+
+
+}
 
 exports.getRepository = function(req, res) {
     // TODO: get individual repository object

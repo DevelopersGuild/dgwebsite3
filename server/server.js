@@ -18,8 +18,9 @@ var SERVER_PORT = 3000;
 // Connect to database
 // Output error to database if error occurs
 // On open output success message to console
-mongoose.connect(process.env.db_development);
-db = mongoose.connection;
+mongoose.connect('mongodb://localhost/dgwebsite-db');
+
+var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('db is connected to mongodb')
