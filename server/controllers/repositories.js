@@ -5,7 +5,7 @@ var markdown = require( "markdown" ).markdown;
 var request = require('request');
 var async = require('async')
 
-var Repository = require('./models/respository.js')
+var Repository = require('../models/repository.js')
 
 
 // Makes request to github for all repo info under developer's guild
