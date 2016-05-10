@@ -1,4 +1,5 @@
 // Repostiory Model File
+'use strict';
 
 // Mongoose package requirement
 var mongoose = require('mongoose');
