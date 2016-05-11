@@ -14,7 +14,6 @@ var routes = require('./routes');
 // SERVER_PORT is the serverport the app will run on for local host.
 var SERVER_PORT = 3000;
 
-
 // Connect to database
 // Output error to database if error occurs
 // On open output success message to console

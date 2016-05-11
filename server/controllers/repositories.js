@@ -30,7 +30,6 @@ exports.renderRepoList = function(req, res) {
  * of all the repositories that belong to Developers' Guild
  * Then it makes individual requests to each repo and saves to db
  */
-// RUNNING MULTIPLE TIMES RATE LIMITS YOU -- NEED AUTH
 exports.saveRepo = function(req, res) {
   var clientParams = config.githubClientParams;
 
