@@ -84,16 +84,27 @@ exports.saveRepo = function(req, res) {
       res.send("lol");
     });
   });
-}
+};
+
+exports.getRepository = function(req, res) {
+  Repository.findOne({
+    name: req.params.id
+  }, function(err, repository) {
+    if (err) return res.send(err);
+    res.send(repository);
+  })
+};
 
 /**
- * Renders readme of ONE respository via github api
+ * Renders list of repositories
  */
-exports.getRepository = function(req, res) {
+exports.getRepositoryList = function(req, res) {
   // TODO: get individual repository object from db
   Repository.find({}, function(err, repositories) {
     if (err) return res.send(err);
-    res.send(repositories);
+    res.render('repoList', {
+      projects: repositories
+    })
   });
 };
 

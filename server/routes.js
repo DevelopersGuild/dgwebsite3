@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 });
 
 // Route for list of repositories
-//router.get('/repositories', repositories.getRepoList);
+router.get('/repositories', repositories.getRepositoryList);
 
 // Test route to save info to the database
 router.get('/repositories/update', repositories.saveRepo);
