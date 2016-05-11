@@ -4,7 +4,7 @@
 var markdown = require( "markdown" ).markdown;
 var request = require('request');
 var async = require('async');
-
+var config = require('../config');
 var Repository = require('../models/repository');
 
 
@@ -32,27 +32,13 @@ exports.renderRepoList = function(req, res) {
  */
 // RUNNING MULTIPLE TIMES RATE LIMITS YOU -- NEED AUTH
 exports.saveRepo = function(req, res) {
-  // var URL = 'https://api.github.com/authorizations';
+  var clientParams = config.githubClientParams;
 
-  // var reqOptions = {
-  //   url: url,
-  //   headers: {
-  //     'id' : '6b8b5cc27df6484a26a0',
-  //     'secret': '4e5ade6a17b233b5b4674c5459fe7fcdc89b64cc',
-  //     'User-Agent': 'vihanchaudhry'
-  //   }
-  // };
-
-  // request(reqOptions, function(err, response, body) {
-
-  // });
-
-  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos';
-
+  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos' + clientParams;
   var reqOptions = {
     url: URL,
     headers: {
-      'User-Agent' : 'BlueAccords'
+      'User-Agent' : 'vihanchaudhry'
     }
   };
 
@@ -67,12 +53,12 @@ exports.saveRepo = function(req, res) {
     body = JSON.parse(body);
 
     async.each(body, function(item, callback) {
-      var URL = 'https://api.github.com/repos/DevelopersGuild/' + item.name;
+      var URL = 'https://api.github.com/repos/DevelopersGuild/' + item.name + clientParams;
 
       var reqOptions = {
         url: URL,
         headers: {
-          'User-Agent' : 'BlueAccords'
+          'User-Agent' : 'vihanchaudhry'
         }
       };
 

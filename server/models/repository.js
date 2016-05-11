@@ -11,7 +11,7 @@ var Schema = mongoose.Schema;
 // the individiual project's config file(if they provide one.)
 var repositorySchema = new Schema({
   name              : { type: String },
-  full_name         : { type: String },
+  full_name         : { type: String, unique: true },
   html_url          : { type: String },
   contributors_url  : { type: String },
   created_at        : { type: Date },
