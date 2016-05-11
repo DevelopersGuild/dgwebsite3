@@ -42,6 +42,10 @@ app.use(express.static('public'));
 // Use routes path in express app
 app.use(routes);
 
+// Run jobs
+// Job1: Update repositories collection via github api every 24 hours
+var job = require('./jobs/refreshRepoDataJob.js');
+
 // Listen on port 3000
 app.listen(SERVER_PORT, function() {
   console.log('app running on port ' + SERVER_PORT);
