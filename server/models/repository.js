@@ -10,36 +10,36 @@ var Schema = mongoose.Schema;
 // if config is prefixed to the field it means we will be getting it from
 // the individiual project's config file(if they provide one.)
 var repositorySchema = new Schema({
-  name              : { Type: String },
-  full_name         : { Type: String },
-  html_url          : { Type: String },
-  contributors_url  : { Type: String },
-  created_at        : { Type: Date },
-  updated_at        : { Type: Date },
-  pushed_at         : { Type: Date },
-  homepage          : { Type: String },
-  size              : { Type: Number },
-  stargazers_count  : { Type: Number },
-  watchers_count    : { Type: Number },
-  language          : { Type: String },
-  forks_count       : { Type: Number },
-  subscribers_count : { Type: Number },
+  name              : { type: String },
+  full_name         : { type: String },
+  html_url          : { type: String },
+  contributors_url  : { type: String },
+  created_at        : { type: Date },
+  updated_at        : { type: Date },
+  pushed_at         : { type: Date },
+  homepage          : { type: String },
+  size              : { type: Number },
+  stargazers_count  : { type: Number },
+  watchers_count    : { type: Number },
+  language          : { type: String },
+  forks_count       : { type: Number },
+  subscribers_count : { type: Number },
   contributors: [{
 
     // Identify users by login
-    login         : { Type: String },
-    avatar_url    : { Type: String },
-    html_url      : { Type: String },
-    contributions : { Type: Number },
-    config_role   : { Type: String },
-    config_full_name: { Type: String },
+    login         : { type: String },
+    avatar_url    : { type: String },
+    html_url      : { type: String },
+    contributions : { type: Number },
+    config_role   : { type: String },
+    config_full_name: { type: String },
   }],
-  config_date        : { Type: String},
-  config_description : { Type: String },
-  config_images      : [{Type: String}],
+  config_date        : { type: String},
+  config_description : { type: String },
+  config_images      : [{type: String}],
 
   // Github API only includes 1 primary language for repo
-  config_tags: [{Type: String}],
+  config_tags: [{type: String}],
 });
 
 // Export Schema
