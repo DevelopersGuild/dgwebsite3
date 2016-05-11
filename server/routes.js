@@ -18,11 +18,11 @@ router.get('/', function(req, res) {
 // Route for list of repositories
 //router.get('/repositories', repositories.getRepoList);
 
-// Route for individual repository pages
-router.get('/repositories/:id', repositories.getRepository);
-
 // Test route to save info to the database
 router.get('/repositories/update', repositories.saveRepo);
+
+// Route for individual repository pages
+router.get('/repositories/:id', repositories.getRepository);
 
 // Export routes
 module.exports = router;

@@ -30,7 +30,23 @@ exports.renderRepoList = function(req, res) {
  * of all the repositories that belong to Developers' Guild
  * Then it makes individual requests to each repo and saves to db
  */
+// RUNNING MULTIPLE TIMES RATE LIMITS YOU -- NEED AUTH
 exports.saveRepo = function(req, res) {
+  // var URL = 'https://api.github.com/authorizations';
+
+  // var reqOptions = {
+  //   url: url,
+  //   headers: {
+  //     'id' : '6b8b5cc27df6484a26a0',
+  //     'secret': '4e5ade6a17b233b5b4674c5459fe7fcdc89b64cc',
+  //     'User-Agent': 'vihanchaudhry'
+  //   }
+  // };
+
+  // request(reqOptions, function(err, response, body) {
+
+  // });
+
   var URL = 'https://api.github.com/orgs/DevelopersGuild/repos';
 
   var reqOptions = {
@@ -41,6 +57,8 @@ exports.saveRepo = function(req, res) {
   };
 
   request(reqOptions, function (err, response, body) {
+
+    console.log(body);
 
     if (err || response.statusCode !== 200) {
       return res.send(err);
@@ -63,6 +81,7 @@ exports.saveRepo = function(req, res) {
       });
     }, function() { // Called when everything else is done
       console.log("Saved everything.");
+      res.send("lol");
     });
   });
 }
