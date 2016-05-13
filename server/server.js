@@ -4,6 +4,7 @@
 // Requirement modules
 var express = require('express');
 var nunjucks = require('nunjucks');
+var bodyParser = require('body-parser');
 
 // mongodb ORM
 var mongoose = require('mongoose');
@@ -32,6 +33,8 @@ nunjucks.configure('./client/views', {
 });
 
 app.set('view engine', 'html');
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // App currently works without this somehow
 //app.set('views', './client/views');
