@@ -86,6 +86,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-# Github Client Parameters File
-server/config.js
