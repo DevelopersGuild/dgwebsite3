@@ -30,7 +30,7 @@ beforeEach(function (done) {
 
 
   if (mongoose.connection.readyState === 0) {
-    mongoose.connect(config.db.test, function (err) {
+    mongoose.connect(config.dbTest, function (err) {
       if (err) {
         throw err;
       }

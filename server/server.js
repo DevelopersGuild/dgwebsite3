@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 var routes = require('./routes');
-var config = './config.js';
+var config = require('./config');
 
 // SERVER_PORT is the serverport the app will run on for local host.
 var SERVER_PORT = 3000;
@@ -22,13 +22,20 @@ var SERVER_PORT = 3000;
 // Will connect to different databases depending on NODE_ENV setting
 switch(process.env.NODE_ENV) {
   case 'test':
-    mongoose.connect(config.db_test);
+    mongoose.connect(config.dbTest);
+    console.log('db is connecting to test database')
+    break;
   case 'development': 
-    mongoose.connect(config.db_development);
-  case 'production'
-    mongoose.connect(config.db_production);
+    mongoose.connect(config.dbDevelopment);
+    console.log('db is connecting to development database')
+    break;
+  case 'production':
+    mongoose.connect(config.dbProduction);
+    console.log('db is connecting to production database')
+    break;
   default:
-    mongoose.connect(config.db_development);
+    mongoose.connect(config.dbDevelopment);
+    console.log('db is connecting to development database')
 }
 
 var db = mongoose.connection;

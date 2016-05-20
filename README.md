@@ -1,3 +1,5 @@
+Run `npm test` to run mocha tests
+
 ## Front End Info
 * Required Info
   * Project Description; String
