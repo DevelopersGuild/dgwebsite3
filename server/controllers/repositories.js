@@ -43,7 +43,7 @@ exports.saveRepo = function(req, res) {
 
   request(reqOptions, function (err, response, body) {
 
-    console.log(body);
+    // console.log(body);
 
     if (err || response.statusCode !== 200) {
       return res.send(err);
@@ -61,7 +61,9 @@ exports.saveRepo = function(req, res) {
         }
       };
 
-      requestRepository(reqOptions, function() {
+      requestRepository(reqOptions, function(err, result) {
+        if(err) console.log('error code: ' + err.code);
+
         callback();
       });
     }, function() { // Called when everything else is done
@@ -99,12 +101,24 @@ function requestRepository(reqOptions, callback) {
     if (err || response.statusCode !== 200) {
       return callback(err);
     } else {
-      body = JSON.parse(body); 
-      var repository = new Repository(body);
+      body = JSON.parse(body);
 
-      repository.save(function(err, repository) {
-        if (err) return callback(err);
-        callback(repository);
+      // var repository = new Repository(body);
+
+      // repository.save(function(err, repository) {
+      //   if (err) return callback(err);
+      //   callback(repository);
+      // });
+
+      var query = { full_name: body.full_name },
+          update = body,
+          options = { upsert: true, new: true, setDefaultsOnInsert: true};
+
+      Repository.findOneAndUpdate(query, update, options, function(err, result) {
+        if(err) return callback(err);
+
+        console.log(result.full_name + " saved");
+        callback(null, result);
       });
     }
   });
