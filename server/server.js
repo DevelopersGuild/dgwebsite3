@@ -11,6 +11,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 var routes = require('./routes');
+var config = './config.js';
 
 // SERVER_PORT is the serverport the app will run on for local host.
 var SERVER_PORT = 3000;
@@ -18,7 +19,17 @@ var SERVER_PORT = 3000;
 // Connect to database
 // Output error to database if error occurs
 // On open output success message to console
-mongoose.connect('mongodb://localhost/dgwebsite-db');
+// Will connect to different databases depending on NODE_ENV setting
+switch(process.env.NODE_ENV) {
+  case 'test':
+    mongoose.connect(config.db_test);
+  case 'development': 
+    mongoose.connect(config.db_development);
+  case 'production'
+    mongoose.connect(config.db_production);
+  default:
+    mongoose.connect(config.db_development);
+}
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

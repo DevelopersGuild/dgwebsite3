@@ -29,4 +29,11 @@ module.exports = {
     inviteToken: process.env.INVITE_TOKEN || null,
 
     locale: process.env.LOCALE || "en",
+
+    // mongodb urls for databases
+    // REPLACE DATABASE-NAME with dgwebsite or anything you want
+    // Currently we aren't sharing databases so leaving it as is is probably fine as well
+    db-test: process.env.DGWEBSITE_TEST             || 'mongodb://localhost/DATABASE-NAME-test',
+    db-dev: process.env.DGWEBSITE_DEV               || 'mongodb://localhost/DATABASE-NAME-dev',
+    db-production: process.env.DGWEBSITE_PRODUCTION || 'mongodb://localhost/DATABASE-NAME-production',
 };
