@@ -86,3 +86,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Config file, make sure to copy and rename config file from "config-example.js"
+# to "config.js"
+server/config.js
