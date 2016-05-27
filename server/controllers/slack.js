@@ -5,11 +5,20 @@ var request = require('request');
 var config = require('../config');
 
 /**
- * Slack Invite button
- * Allows user to enter their email and receive an email for a slack invite
+ * Render a page for a user to enter form info to get a slack invite
+ * @return {[view]}     [Renders a slack invite webpage to the user]
+ */
+exports.getSlackInvite = function(req, res) {
+    res.render('slack/index', { community: config.community,
+        tokenRequired: !!config.inviteToken });
+};
+
+/**
+ * Post Request to Slack Invite button
+ * Sends success/error message to user after submitting their email to get a slack invite
  * @return {view}     [render a view with success/failure information]
  */
-exports.slackInvite = function(req, res) {
+exports.postSlackInvite = function(req, res) {
     if (req.body.email && (!config.inviteToken || (!!config.inviteToken && req.body.token === config.inviteToken))) {
         request.post({
             url: 'https://'+ config.slackUrl + '/api/users.admin.invite',

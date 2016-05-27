@@ -7,33 +7,26 @@ var request = require('request');
 var config = require('./config');
 
 // Controller for repositories
-var repositories = require('./controllers/repositories');
-
+var Repositories = require('./controllers/repositories');
+var Slack        = require('./controllers/slack');
 // Root route
 router.get('/', function(req, res) {
-    res.render('index', {
-        care: "nunjucks variable"
-    });
+    res.render('index');
 });
 
 // Route for list of repositories
-router.get('/repositories', repositories.getRepositoryList);
+router.get('/repositories', Repositories.getRepositoryList);
 
 // Test route to save info to the database
-router.get('/repositories/update', repositories.saveRepo);
+router.get('/repositories/update', Repositories.saveRepo);
 
 // Route for individual repository pages
-router.get('/repositories/:id', repositories.getRepository);
+router.get('/repositories/:id', Repositories.getRepository);
 
 // Route for slack invite
-router.get('/invite', function(req, res) {
-    res.render('slack/index', { community: config.community,
-        tokenRequired: !!config.inviteToken });
-});
+router.get('/invite', Slack.getSlackInvite);
 
-router.post('/invite', function(req, res) {
-  res.send('blah');
-});
+router.post('/invite', Slack.postSlackInvite);
 
 
 // Export routes
