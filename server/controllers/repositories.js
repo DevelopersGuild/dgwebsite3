@@ -20,7 +20,7 @@ exports.renderRepoList = function(req, res) {
   var nameArr = [];
   
   // render
-  res.render('repoList', {
+  res.render('repositories/index', {
       projects: nameArr,
     });
 };
