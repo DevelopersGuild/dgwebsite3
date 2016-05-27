@@ -139,9 +139,13 @@ exports.getRepositoryList = function(req, res) {
 
 /**
  * Request individual repository from github api and saves to db
- * @param  {json}   reqOptions [ Send request options for the api request]
+ * Checks if repository already exists in the database
+ *  If the repo already exists then just update information
+ *  If the repo DOES NOT exist then create a new repo object and save it
+ * 
+ * @param  {json}   reqOptions   [ Send request options for the api request]
  * @param  {Function} callback   [callback function to call upon completion of the function]
- * @return {Function}              [End of function executes the callback whether it succeeds or fails]
+ * @return {Function}            [End of function executes the passed in callback whether it succeeds or fails]
  */
 function requestRepository(reqOptions, callback) {
   request(reqOptions, function (err, response, body) {
@@ -199,4 +203,45 @@ function getRepoReadMe(url, done) {
 
     done(body);
   });
+}
+
+/* Make request to org
+  *  > Iterate through pages(build an array of repo objects)
+  *  >> Iterate through final built list of repo objects
+  *  >>> Save individual information of each repo to database
+  *  >>>> Make request to individual repos to check for existence of config file
+  *  >>>> Save config file to database for each repo
+  */
+exports.requestPagination = function(req, res) {
+  /**
+   * doWhilst is an asynchronus do while loop
+   * This is so it will execute AT LEAST once.
+   * 
+   * @param {function} [fn(callback)] 
+   *  [function that is called AT LEAST once
+   *   And will continued to be called until TEST function is false.
+   *   To exit this loop to enter the next test loop call 
+   *   the passed in callback function]
+   *   
+   * @param {function} [test]
+   *  [The function to test for true/false and will end the loop
+   *   Once it is false]
+   *   
+   * @param {function} [callback(err, result)] 
+   *  [callback function that is called once the loop is finished.
+   *   Will also be passed results from last callback in test function]
+   */
+  async.doWhilst(
+    // Execution Function(called each loop)
+    function(callback){
+      console.log('called once');
+    },
+    // Test Function(tests for true/false to continue or exit the loop)
+    function(){
+      return false;
+    },
+    // final callback function(called if error or when done)
+    function(){
+      res.send('completed')
+    });
 }
