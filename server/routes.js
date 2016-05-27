@@ -11,7 +11,7 @@ var repositories = require('./controllers/repositories');
 
 // Root route
 router.get('/', function(req, res) {
-    res.render('second', {
+    res.render('index', {
         care: "nunjucks variable"
     });
 });

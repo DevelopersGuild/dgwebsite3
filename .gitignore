@@ -67,6 +67,9 @@ Temporary Items
 # JetBrains
 /.idea
 
+# Visual Studio Code
+/.vscode
+
 ### Windows ###
 # Windows image file caches
 Thumbs.db
