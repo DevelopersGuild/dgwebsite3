@@ -32,8 +32,11 @@ exports.renderRepoList = function(req, res) {
  */
 exports.saveRepo = function(req, res) {
   var clientParams = config.githubClientParams;
+  // Max limit of results per page is 100
+  // TODO: add pagination to this request
+  var pagesPerRequest = '&per_page=100';
 
-  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos' + clientParams;
+  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos' + clientParams + pagesPerRequest;
   var reqOptions = {
     url: URL,
     headers: {
@@ -54,6 +57,8 @@ exports.saveRepo = function(req, res) {
     async.each(body, function(item, callback) {
       var URL = 'https://api.github.com/repos/DevelopersGuild/' + item.name + clientParams;
 
+      console.log('attempting to save info for ... ' + item.full_name);
+
       var reqOptions = {
         url: URL,
         headers: {
@@ -66,18 +71,26 @@ exports.saveRepo = function(req, res) {
 
         callback();
       });
+      // callback();
     }, function() { // Called when everything else is done
       console.log("Saved everything.");
-      res.send("lol");
+      res.send(body);
     });
   });
 };
 
+/**
+ * Makes a request to the database to get one repository object from
+ * the database using the passed in params id(via the url repositories/:id)
+ *
+ * @return { json } Returns JSON object containing repository information inside a json object
+ */
 exports.getRepository = function(req, res) {
   Repository.findOne({
     name: req.params.id
   }, function(err, repository) {
     if (err) return res.send(err);
+
     res.send(repository);
   })
 };
@@ -102,13 +115,6 @@ function requestRepository(reqOptions, callback) {
       return callback(err);
     } else {
       body = JSON.parse(body);
-
-      // var repository = new Repository(body);
-
-      // repository.save(function(err, repository) {
-      //   if (err) return callback(err);
-      //   callback(repository);
-      // });
 
       var query = { full_name: body.full_name },
           update = body,
