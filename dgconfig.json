@@ -1,0 +1,42 @@
+{
+    "config_date": "Spring 2016",
+    "config_description": "Creating a node app from the beginning use node/express/mongodb",
+    "config_images": [
+        "https://cdn.theatlantic.com/assets/media/img/photo/2015/11/images-from-the-2016-sony-world-pho/s01_130921474920553591/main_900.jpg?1448476701",
+        "http://i.dailymail.co.uk/i/pix/2016/03/22/13/32738A6E00000578-3504412-image-a-6_1458654517341.jpg"
+    ],
+    "config_tags": [
+        "javascript",
+        "html",
+        "css",
+        "nodejs",
+        "mongodb",
+        "bootstrap"
+    ],
+    "contributors": [
+        {
+            "config_full_name": "Ryan Tran",
+            "config_role": "Backend Developer"
+        },
+        {
+            "config_full_name": "Vihan Chaudhry",
+            "config_role": "Backend Developer"
+        },
+        {
+            "config_full_name": "Ilan Granot",
+            "config_role": "Project Manager"
+        },
+        {
+            "config_full_name": "Adam Dao",
+            "config_role": "Web Designer"
+        },
+        {
+            "config_full_name": "Rathna Kashyap",
+            "config_role": "Frontend Developer"
+        },
+        {
+            "config_full_name": "Billy Simarmata",
+            "config_role": "Frontend Developer"
+        }
+    ]
+}
