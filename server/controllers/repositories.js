@@ -96,10 +96,13 @@ exports.getRepository = function(req, res) {
 };
 
 /**
- * Renders list of repositories
+ * Makes a request to the database for the entire list of repository projects
+ * Renders a page with the project names and links to the individual pages
+ *
+ * @return {Render} [Renders a page to the view once finished
+ *                   Otherwise render the error message]
  */
 exports.getRepositoryList = function(req, res) {
-  // TODO: get individual repository object from db
   Repository.find({}, function(err, repositories) {
     if (err) return res.send(err);
     res.render('repoList', {
@@ -108,7 +111,12 @@ exports.getRepositoryList = function(req, res) {
   });
 };
 
-// Request individual repository from github api and saves to db
+/**
+ * Request individual repository from github api and saves to db
+ * @param  {json}   reqOptions [ Send request options for the api request]
+ * @param  {Function} callback   [callback function to call upon completion of the function]
+ * @return {Function}              [End of function executes the callback whether it succeeds or fails]
+ */
 function requestRepository(reqOptions, callback) {
   request(reqOptions, function (err, response, body) {
     if (err || response.statusCode !== 200) {
@@ -130,10 +138,11 @@ function requestRepository(reqOptions, callback) {
   });
 };
 
-// Gets a Repo's README
-// @url; the url for the api call on github
-// @done; the callback to call when the api call is done.
-//  Also returns null or the html body of the readme
+/**
+ * [getRepoReadMe Gets a repository's individual readme file]
+ * @param  {String}   url  [URL of the readme file within the repository]
+ * @param  {Function} done [callback function to call upon completion/failure]
+ */
 function getRepoReadMe(url, done) {
   console.log('API CALL');
 
