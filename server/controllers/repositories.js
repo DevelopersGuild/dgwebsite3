@@ -26,9 +26,14 @@ exports.renderRepoList = function(req, res) {
 };
 
 /**
- * Function makes a github api request for repo list information
- * of all the repositories that belong to Developers' Guild
- * Then it makes individual requests to each repo and saves to db
+ * Makes a request via Github API to developer's guild organization
+ * Gets list of repo json data from request
+ * Loops through list of repos
+ *  Makes individual Github API request to each repo
+ *  Saves Data from individual repositories to database
+ *    If repo does not exist in database then create a new object for the repo
+ *
+ *  Returns results to view as json object 
  */
 exports.saveRepo = function(req, res) {
   var clientParams = config.githubClientParams;
@@ -36,6 +41,7 @@ exports.saveRepo = function(req, res) {
   // TODO: add pagination to this request
   var pagesPerRequest = '&per_page=100';
 
+  // URL and options for api request
   var URL = 'https://api.github.com/orgs/DevelopersGuild/repos' + clientParams + pagesPerRequest;
   var reqOptions = {
     url: URL,
@@ -44,34 +50,54 @@ exports.saveRepo = function(req, res) {
     }
   };
 
+  /**
+   * Use request library to make api request to github for list of repository information
+   * From the Developer's Guild organization
+   * @param  {[json]} err      [Error Object(null if no error)]
+   * @param  {[json]} response [response object that includes success/failure]
+   * @param  {[json]} body     [Result of api request]
+   */
   request(reqOptions, function (err, response, body) {
-
-    // console.log(body);
-
+    
+    // Error checking 
     if (err || response.statusCode !== 200) {
       return res.send(err);
     }
-
+    
+    // Convert result into JSON
     body = JSON.parse(body);
-
+    
+    // Asynchronously Loop through list of repo urls
     async.each(body, function(item, callback) {
+      // Individual repository information via github api
       var URL = 'https://api.github.com/repos/DevelopersGuild/' + item.name + clientParams;
 
       console.log('attempting to save info for ... ' + item.full_name);
-
+      
+      // API request options
       var reqOptions = {
         url: URL,
         headers: {
           'User-Agent' : 'vihanchaudhry'
         }
       };
-
+      
+      /**
+       * Helper function to make api request for individual repo information
+       * @param  {json} reqOptions[ API request options ]
+       * @param  {json} result    [ Result of api request]
+       * @return {Function}       [ Callback function once request is finished to end one iteration
+       *                            of the aynchronus loop ]
+       */
       requestRepository(reqOptions, function(err, result) {
         if(err) console.log('error code: ' + err.code);
 
         callback();
       });
-      // callback();
+      /**
+       * Final Callback function after the loop is done
+       * @return {json} [Currently just sends json to view]
+       */
     }, function() { // Called when everything else is done
       console.log("Saved everything.");
       res.send(body);
@@ -145,14 +171,23 @@ function requestRepository(reqOptions, callback) {
  */
 function getRepoReadMe(url, done) {
   console.log('API CALL');
-
+  
+  // API request options
   var reqOptions = {
     url: url,
     headers: {
       'User-Agent' : 'BlueAccords'
     }
   };
-
+  
+  /**
+   * Make the api request using request library
+   * @param {json} reqOptions [API request options]
+   * @param {json} err [Error object(null if no error)]
+   * @param {json} response [Response object passed from the api request(includes HTTP status code)]
+   * @param {json} body [Returned content from the api request.
+   *                     Includes README contents]
+   */
   request(reqOptions, function (err, response, body) {
 
     if (err || response.statusCode !== 200) {
