@@ -15,18 +15,6 @@ exports.refreshRepoList = function(req, res) {
     Repository.saveRepo();
 };
 
-exports.renderRepoList = function(req, res) {
-  // fetch from db
-  var nameArr = [];
-  
-  // render
-  res.render('repositories/index', {
-      projects: nameArr,
-    });
-};
-
-
-
 /**
  * Makes a request to the database to get one repository object from
  * the database using the passed in params id(via the url repositories/:id)
@@ -163,6 +151,7 @@ exports.saveRepo = function(req, res) {
        */
     }, function() { // Called when everything else is done
       console.log("Saved everything.");
+      console.log(body.length + " repos saved");
       res.send(body);
     });
   });
@@ -180,7 +169,7 @@ function paginateRepos(done) {
   // URL and options for api request
   // Defined outside the loop sa they will need to change later
   var clientParams = config.githubClientParams;
-  var URL = 'https://api.github.com/orgs/Twitter/repos' + clientParams;
+  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos' + clientParams;
   var reqOptions = {
     url: URL,
     headers: {
@@ -283,30 +272,72 @@ function paginateRepos(done) {
  * @return {json}             [returns a json object with the keys being the rel type
  *                             Types being: next, last, prev,
  *                             Keys being: urls to make further api requests for different pages ]
+ *
+ * Source: https://github.com/jfromaniello/parse-links
+ * Licensed under MIT license
  */
 function linkParser(linksHeader, done) {
   var result = {};
+
+  // Split the links Header object into individual objects
+  // Each one consists of:
+  //  the api link to a page
+  //  the rel type(prev, next, last)
   var entries = linksHeader.split(',');
-  // compile regular expressions ahead of time for efficiency
+
+  /* regex.
+   * Example source text:
+   * Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+   * <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+   */
+  
+  // rels regex gets the contents of the rel.
+  // i.e this will get 'rel="last"' from the source
   var relsRegExp = /\brel="?([^"]+)"?\s*;?/;
+
+  // keys RegEx used to get the contents of rel from
+  // i.e. this will get 'first' from ""first""
   var keysRegExp = /(\b[0-9a-z\.-]+\b)/g;
+
+  // source regex will get the api link within < > brackets
   var sourceRegExp = /^<(.*)>/;
 
+  // Iterate through eall the entry blocks(usually there's only next, last, and prev)
   for (var i = 0; i < entries.length; i++) {
     var entry = entries[i].trim();
+
+    // Get the rels block 
+    // i.e rel="last"
     var rels = relsRegExp.exec(entry);
+
+    // Check if a rel exists in the block
     if (rels) {
+
+      // Get a key from the rel block
+      // [1] is used to get the 2nd match from the rel block(which will be the "" content)
       var keys = rels[1].match(keysRegExp);
+
+      // Get the api url from the entry block inside of < >
+      // [1] is used to only get the url, [0] would get the <url> brackets AS WELL
+      // as the url
       var source = sourceRegExp.exec(entry)[1];
+
+      // Define vars for the for loop and set it to the length of found rel keys
       var k, kLength = keys.length;
+
+      // Iterate through the key list and 
+      // set the keys to the rel content
+      // set the value of the key to the url of the entry block
       for (k = 0; k < kLength; k += 1) {
         result[keys[k]] = source
       }
     }
   }
-
+    
+    // Exit the function via callback and return the result
     done(null, result);
 };
+
 
 /**
  * Request individual repository from github api and saves to db
@@ -319,20 +350,32 @@ function linkParser(linksHeader, done) {
  * @return {Function}            [End of function executes the passed in callback whether it succeeds or fails]
  */
 function requestRepository(reqOptions, callback) {
+
+  // Make api request using given request options
   request(reqOptions, function (err, response, body) {
     if (err || response.statusCode !== 200) {
       return callback(err);
     } else {
       body = JSON.parse(body);
 
+      // Query to search the database for the repo's full_name
+      // the update contents to update the database with is the contents of the body
+      // options 
+      //  upsert = update info, 
+      //  new = if no object found then create a new object
+      //  setDefaultsOnInsert = set default fields from model if they all aren't there
       var query = { full_name: body.full_name },
           update = body,
           options = { upsert: true, new: true, setDefaultsOnInsert: true};
-
+      
+      // Make a request to the database to create OR update an object.
+      // If object is not found then create a new one in the database
       Repository.findOneAndUpdate(query, update, options, function(err, result) {
         if(err) return callback(err);
 
         console.log(result.full_name + " saved");
+
+        // Callback to end the function and return the updated/newly created object
         callback(null, result);
       });
     }
