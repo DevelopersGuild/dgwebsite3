@@ -213,6 +213,25 @@ function getRepoReadMe(url, done) {
   *  >>>> Save config file to database for each repo
   */
 exports.requestPagination = function(req, res) {
+  // URL and options for api request
+  // Defined outside the loop sa they will need to change later
+  var clientParams = config.githubClientParams;
+  var URL = 'https://api.github.com/orgs/Twitter/repos' + clientParams;
+  var reqOptions = {
+    url: URL,
+    headers: {
+      'User-Agent' : 'vihanchaudhry'
+    }
+  };
+  
+  // This is the previous link object(starts out empty)
+  // It will be updated each iteration and checked to see if the "next"
+  // property exists and if it does not the loop will exit
+  var lastLinksObject = null;
+
+  // List of repos from ALL pages
+  var repoList = [];
+
   /**
    * doWhilst is an asynchronus do while loop
    * This is so it will execute AT LEAST once.
@@ -233,15 +252,127 @@ exports.requestPagination = function(req, res) {
    */
   async.doWhilst(
     // Execution Function(called each loop)
-    function(callback){
-      console.log('called once');
+    function(callback, thing){
+      
+      
+      console.log('making request on... ');
+      console.log(reqOptions);
+      console.log('new options...')
+      reqOptions.url = URL;
+      console.log(reqOptions);
+      /**
+       * Use request library to make api request to github for list of repository information
+       * From the Developer's Guild organization
+       * @param  {[json]} err      [Error Object(null if no error)]
+       * @param  {[json]} response [response object that includes success/failure]
+       * @param  {[json]} body     [Result of api request]
+       */
+      request(reqOptions, function (err, response, body) {
+        if(err) callback(err);
+        
+        // Set link response to the returned link object
+        // which will contain, next, previous, and last relational api links
+        var linkResponse = response.headers.link;
+
+        linkParser(linkResponse, function(err, links) {
+          if(err) callback(err);
+          
+          // Set last link object to resulting parsed links object
+          lastLinksObject = links;
+          
+          // Append body from response to repo list
+          body = JSON.parse(body);
+          repoList.push.apply(repoList, body);
+          
+          // Set new URL to NEXT PAGE url
+          URL = lastLinksObject.next;
+          console.log(URL);
+          callback(null, links);
+        });
+      });
     },
     // Test Function(tests for true/false to continue or exit the loop)
     function(){
-      return false;
+      // Checks if the link object has a next page or not
+      // If it DOES NOT then exit the loop
+      // if it DOES have a next page then continue the loop
+      console.log('CONTINUE LOOP? ' + lastLinksObject.hasOwnProperty('next'));
+      return lastLinksObject.hasOwnProperty('next');
     },
     // final callback function(called if error or when done)
-    function(){
-      res.send('completed')
+    function(err, result){
+      if(err) res.send(err);
+      res.send(repoList);
     });
 }
+
+
+/**
+ * Simple example to make api requests. Erase Later
+ * @param  {[type]} req [description]
+ * @param  {[type]} res [description]
+ * @return {[type]}     [description]
+ */
+exports.onePageRequest = function(req, res) {
+  var clientParams = config.githubClientParams;
+
+  // URL and options for api request
+  var URL = 'https://api.github.com/orgs/Twitter/repos' + clientParams;
+  var reqOptions = {
+    url: URL,
+    headers: {
+      'User-Agent' : 'vihanchaudhry'
+    }
+  };
+
+  /**
+   * Use request library to make api request to github for list of repository information
+   * From the Developer's Guild organization
+   * @param  {[json]} err      [Error Object(null if no error)]
+   * @param  {[json]} response [response object that includes success/failure]
+   * @param  {[json]} body     [Result of api request]
+   */
+  request(reqOptions, function (err, response, body) {
+    if(err) res.send(err);
+    
+    var linkResponse = response.headers.link;
+    var lastResponse = linkParser(linkResponse, function(links) {
+      res.send(links);  
+    });
+  });
+}
+
+/**
+ * This function parses the link object in the returned header object
+ * from the github api request and returns an object of links
+ * to the next, previous, and last pages of the request result
+ * of the number of results exceeds a single page.
+ * @param  {json} linksHeader [link header object from api request]
+ * @param  {function} done    [callback function for when everything is done]
+ * @return {json}             [returns a json object with the keys being the rel type
+ *                             Types being: next, last, prev,
+ *                             Keys being: urls to make further api requests for different pages ]
+ */
+function linkParser(linksHeader, done) {
+  var result = {};
+  var entries = linksHeader.split(',');
+  // compile regular expressions ahead of time for efficiency
+  var relsRegExp = /\brel="?([^"]+)"?\s*;?/;
+  var keysRegExp = /(\b[0-9a-z\.-]+\b)/g;
+  var sourceRegExp = /^<(.*)>/;
+
+  for (var i = 0; i < entries.length; i++) {
+    var entry = entries[i].trim();
+    var rels = relsRegExp.exec(entry);
+    if (rels) {
+      var keys = rels[1].match(keysRegExp);
+      var source = sourceRegExp.exec(entry)[1];
+      var k, kLength = keys.length;
+      for (k = 0; k < kLength; k += 1) {
+        result[keys[k]] = source
+      }
+    }
+  }
+
+    done(null, result);
+};

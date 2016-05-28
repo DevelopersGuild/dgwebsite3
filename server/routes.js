@@ -9,6 +9,7 @@ var config = require('./config');
 // Controller for repositories
 var Repositories = require('./controllers/repositories');
 var Slack        = require('./controllers/slack');
+
 // Root route
 router.get('/', function(req, res) {
     res.render('index');
@@ -22,6 +23,8 @@ router.get('/repositories/update', Repositories.saveRepo);
 
 // Route for individual repository pages
 router.get('/repositories/:id', Repositories.getRepository);
+
+router.get('/paginate', Repositories.requestPagination);
 
 // Route for slack invite
 router.get('/invite', Slack.getSlackInvite);
