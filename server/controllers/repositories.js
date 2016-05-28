@@ -25,85 +25,7 @@ exports.renderRepoList = function(req, res) {
     });
 };
 
-/**
- * Makes a request via Github API to developer's guild organization
- * Gets list of repo json data from request
- * Loops through list of repos
- *  Makes individual Github API request to each repo
- *  Saves Data from individual repositories to database
- *    If repo does not exist in database then create a new object for the repo
- *
- *  Returns results to view as json object 
- */
-exports.saveRepo = function(req, res) {
-  var clientParams = config.githubClientParams;
-  // Max limit of results per page is 100
-  // TODO: add pagination to this request
-  var pagesPerRequest = '&per_page=100';
 
-  // URL and options for api request
-  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos' + clientParams + pagesPerRequest;
-  var reqOptions = {
-    url: URL,
-    headers: {
-      'User-Agent' : 'vihanchaudhry'
-    }
-  };
-
-  /**
-   * Use request library to make api request to github for list of repository information
-   * From the Developer's Guild organization
-   * @param  {[json]} err      [Error Object(null if no error)]
-   * @param  {[json]} response [response object that includes success/failure]
-   * @param  {[json]} body     [Result of api request]
-   */
-  request(reqOptions, function (err, response, body) {
-    
-    // Error checking 
-    if (err || response.statusCode !== 200) {
-      return res.send(err);
-    }
-    
-    // Convert result into JSON
-    body = JSON.parse(body);
-    
-    // Asynchronously Loop through list of repo urls
-    async.each(body, function(item, callback) {
-      // Individual repository information via github api
-      var URL = 'https://api.github.com/repos/DevelopersGuild/' + item.name + clientParams;
-
-      console.log('attempting to save info for ... ' + item.full_name);
-      
-      // API request options
-      var reqOptions = {
-        url: URL,
-        headers: {
-          'User-Agent' : 'vihanchaudhry'
-        }
-      };
-      
-      /**
-       * Helper function to make api request for individual repo information
-       * @param  {json} reqOptions[ API request options ]
-       * @param  {json} result    [ Result of api request]
-       * @return {Function}       [ Callback function once request is finished to end one iteration
-       *                            of the aynchronus loop ]
-       */
-      requestRepository(reqOptions, function(err, result) {
-        if(err) console.log('error code: ' + err.code);
-
-        callback();
-      });
-      /**
-       * Final Callback function after the loop is done
-       * @return {json} [Currently just sends json to view]
-       */
-    }, function() { // Called when everything else is done
-      console.log("Saved everything.");
-      res.send(body);
-    });
-  });
-};
 
 /**
  * Makes a request to the database to get one repository object from
@@ -134,37 +56,6 @@ exports.getRepositoryList = function(req, res) {
     res.render('repositories/index', {
       projects: repositories
     })
-  });
-};
-
-/**
- * Request individual repository from github api and saves to db
- * Checks if repository already exists in the database
- *  If the repo already exists then just update information
- *  If the repo DOES NOT exist then create a new repo object and save it
- * 
- * @param  {json}   reqOptions   [ Send request options for the api request]
- * @param  {Function} callback   [callback function to call upon completion of the function]
- * @return {Function}            [End of function executes the passed in callback whether it succeeds or fails]
- */
-function requestRepository(reqOptions, callback) {
-  request(reqOptions, function (err, response, body) {
-    if (err || response.statusCode !== 200) {
-      return callback(err);
-    } else {
-      body = JSON.parse(body);
-
-      var query = { full_name: body.full_name },
-          update = body,
-          options = { upsert: true, new: true, setDefaultsOnInsert: true};
-
-      Repository.findOneAndUpdate(query, update, options, function(err, result) {
-        if(err) return callback(err);
-
-        console.log(result.full_name + " saved");
-        callback(null, result);
-      });
-    }
   });
 };
 
@@ -205,14 +96,87 @@ function getRepoReadMe(url, done) {
   });
 }
 
+
+/**
+ * Makes a request via Github API to developer's guild organization
+ * Gets list of repo json data from request
+ * Loops through list of repos
+ *  Makes individual Github API request to each repo
+ *  Saves Data from individual repositories to database
+ *    If repo does not exist in database then create a new object for the repo
+ *
+ *  Returns results to view as json object 
+ */
+exports.saveRepo = function(req, res) {
+  var clientParams = config.githubClientParams;
+
+  // URL and options for api request
+  var URL = 'https://api.github.com/orgs/DevelopersGuild/repos' + clientParams;
+  var reqOptions = {
+    url: URL,
+    headers: {
+      'User-Agent' : 'vihanchaudhry'
+    }
+  };
+
+
+  paginateRepos(function (err, body) {
+    
+    // // Error checking 
+    // if (err || response.statusCode !== 200) {
+    //   return res.send(err);
+    // }
+    
+    // // Convert result into JSON
+    // body = JSON.parse(body);
+    
+    // Asynchronously Loop through list of repo urls
+    async.each(body, function(item, callback) {
+      // Individual repository information via github api
+      var URL = 'https://api.github.com/repos/DevelopersGuild/' + item.name + clientParams;
+
+      console.log('attempting to save info for ... ' + item.full_name);
+      
+      // API request options
+      var reqOptions = {
+        url: URL,
+        headers: {
+          'User-Agent' : 'vihanchaudhry'
+        }
+      };
+      
+      /**
+       * Helper function to make api request for individual repo information
+       * @param  {json} reqOptions[ API request options ]
+       * @param  {json} result    [ Result of api request]
+       * @return {Function}       [ Callback function once request is finished to end one iteration
+       *                            of the aynchronus loop ]
+       */
+      requestRepository(reqOptions, function(err, result) {
+        if(err) console.log('error code: ' + err.code);
+
+        callback();
+      });
+      /**
+       * Final Callback function after the loop is done
+       * @return {json} [Currently just sends json to view]
+       */
+    }, function() { // Called when everything else is done
+      console.log("Saved everything.");
+      res.send(body);
+    });
+  });
+};
+
 /* Make request to org
   *  > Iterate through pages(build an array of repo objects)
   *  >> Iterate through final built list of repo objects
   *  >>> Save individual information of each repo to database
   *  >>>> Make request to individual repos to check for existence of config file
   *  >>>> Save config file to database for each repo
+  *  >>>>> do final callback and return list of all repo objects
   */
-exports.requestPagination = function(req, res) {
+function paginateRepos(done) {
   // URL and options for api request
   // Defined outside the loop sa they will need to change later
   var clientParams = config.githubClientParams;
@@ -301,46 +265,13 @@ exports.requestPagination = function(req, res) {
     },
     // final callback function(called if error or when done)
     function(err, result){
-      if(err) res.send(err);
-      res.send(repoList);
+      if(err) done(err)
+      
+      // Send results to callback function
+      done(null, repoList);
     });
 }
 
-
-/**
- * Simple example to make api requests. Erase Later
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
- */
-exports.onePageRequest = function(req, res) {
-  var clientParams = config.githubClientParams;
-
-  // URL and options for api request
-  var URL = 'https://api.github.com/orgs/Twitter/repos' + clientParams;
-  var reqOptions = {
-    url: URL,
-    headers: {
-      'User-Agent' : 'vihanchaudhry'
-    }
-  };
-
-  /**
-   * Use request library to make api request to github for list of repository information
-   * From the Developer's Guild organization
-   * @param  {[json]} err      [Error Object(null if no error)]
-   * @param  {[json]} response [response object that includes success/failure]
-   * @param  {[json]} body     [Result of api request]
-   */
-  request(reqOptions, function (err, response, body) {
-    if(err) res.send(err);
-    
-    var linkResponse = response.headers.link;
-    var lastResponse = linkParser(linkResponse, function(links) {
-      res.send(links);  
-    });
-  });
-}
 
 /**
  * This function parses the link object in the returned header object
@@ -375,4 +306,35 @@ function linkParser(linksHeader, done) {
   }
 
     done(null, result);
+};
+
+/**
+ * Request individual repository from github api and saves to db
+ * Checks if repository already exists in the database
+ *  If the repo already exists then just update information
+ *  If the repo DOES NOT exist then create a new repo object and save it
+ * 
+ * @param  {json}   reqOptions   [ Send request options for the api request]
+ * @param  {Function} callback   [callback function to call upon completion of the function]
+ * @return {Function}            [End of function executes the passed in callback whether it succeeds or fails]
+ */
+function requestRepository(reqOptions, callback) {
+  request(reqOptions, function (err, response, body) {
+    if (err || response.statusCode !== 200) {
+      return callback(err);
+    } else {
+      body = JSON.parse(body);
+
+      var query = { full_name: body.full_name },
+          update = body,
+          options = { upsert: true, new: true, setDefaultsOnInsert: true};
+
+      Repository.findOneAndUpdate(query, update, options, function(err, result) {
+        if(err) return callback(err);
+
+        console.log(result.full_name + " saved");
+        callback(null, result);
+      });
+    }
+  });
 };
