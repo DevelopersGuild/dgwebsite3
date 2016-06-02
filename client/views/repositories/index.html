@@ -1,3 +1,37 @@
+<!-- 
+
+HOW TO OUTPUT A VARIABLE INSISDE OF AN HTML TAG =============================
+
+<p> {{project}} </p>
+{{ variable_name }} 
+
+Just surround the variable name with two curly braces "{{" "}}" 
+
+and the variable will be output to the page
+
+HOW TO DO A FOR LOOP OVER A LIST OF VARIABLES ===============================
+
+{% for listItem in listName %}
+
+<p> Output single field from listItem here</p>
+<p> {{listItem.name}} </p>
+
+{% endfor %}
+
+HOW TO DO AN IF STATEMENT TO CHECK IF A VARIBLE EXISTS ======================
+
+{% if variableName %}
+
+<p>Insert your HTML code here if the variable exists </p>
+
+{% endif %}
+
+If the varible does not exist OR is empty(like an empty field or string)
+the code in the IF statement will NOT be outputted
+
+-->
+
+
 {% block main %}
 <h1>Projects</h1>
 <ul>
