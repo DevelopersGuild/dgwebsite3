@@ -55,33 +55,40 @@ the code in the IF statement will NOT be outputted
     <li>stars: {{project.stargazers_count}}</li>
     <li>watchers: {{project.watchers_count}}</li>
     <li>forks: {{project.forks_count}}</li>
+
+    <!-- Quarter Date and Description are from config files.
+    if the team who runs the repository does NOT include a config file these fileds will be left blank -->
     <li>Quarter Date: {{project.config.config_date}}</li>
     <li>description: {{project.config.config_description}}</li>
   </ul>
   
   <h2>Project Tags</h2>
+  <ul>
   {% for tag in project.config.config_tags %}
-    <ul>
-      <li>{{tag}}</li>
-    </ul>
+    
+    <li>{{tag}}</li>
+    
   {% endfor %}
+  </ul>
 
   <h2>Project Images</h2>
+  <ul>
   {% for image in project.config.config_images %}
-    <ul>
-      <li><img src="{{image}}" alt=""></li>
-    </ul>
+    
+    <li><img src="{{image}}" alt=""></li>
+    
   {% endfor %}
+  </ul>
 
   <h2>Contributors / Team Members</h2>
+  <ul>
   {% for member in project.config.contributors %}
-    <ul>
-      <li>Name: {{member.config_full_name}} <br/>
-          Role: {{member.config_role}}
-      </li>
-      <br>
-    </ul>
+    <li>Name: {{member.config_full_name}} <br/>
+        Role: {{member.config_role}}
+    </li>
+    <br>
   {% endfor %}
+  </ul>
 
 
   <hr>
