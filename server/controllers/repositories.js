@@ -83,7 +83,7 @@ exports.getDGConfig = function(repoName, done) {
 
         done(null, body);
     });
-}
+};
 
 
 /**
