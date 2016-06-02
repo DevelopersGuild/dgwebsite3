@@ -38,6 +38,10 @@
             {
                 "config_full_name": "Billy Simarmata",
                 "config_role": "Frontend Developer"
+            },
+            {
+                "config_full_name": "Chris Banh",
+                "config_role": "Dev Ops"
             }]
    }
  }
