@@ -110,13 +110,11 @@ exports.saveRepo = function(req, res) {
 
   paginateRepos(function (err, body) {
     
-    // // Error checking 
-    // if (err || response.statusCode !== 200) {
-    //   return res.send(err);
-    // }
+    // Error checking 
+    if (err || response.statusCode !== 200) {
+      return res.send(err);
+    }
     
-    // // Convert result into JSON
-    // body = JSON.parse(body);
     
     // Asynchronously Loop through list of repo urls
     async.each(body, function(item, callback) {
@@ -192,8 +190,8 @@ function paginateRepos(done) {
    * @param {function} [fn(callback)] 
    *  [function that is called AT LEAST once
    *   And will continued to be called until TEST function is false.
-   *   To exit this loop to enter the next test loop call 
-   *   the passed in callback function]
+   *   To exit this loop and enter the next test loop 
+   *   call the passed in callback function]
    *   
    * @param {function} [test]
    *  [The function to test for true/false and will end the loop
