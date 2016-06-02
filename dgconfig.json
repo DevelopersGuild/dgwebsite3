@@ -1,5 +1,5 @@
 {
-   config: {
+   "config": {
        "config_date": "Spring 2016",
         "config_description": "Creating a node app from the beginning use node/express/mongodb",
         "config_images": [
@@ -40,4 +40,4 @@
                 "config_role": "Frontend Developer"
             }]
    }
-}
+ }
