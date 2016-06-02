@@ -24,22 +24,21 @@ var repositorySchema = new Schema({
   language          : { type: String },
   forks_count       : { type: Number },
   subscribers_count : { type: Number },
-  contributors: [{
+  config : {
+    config_date        : { type: String},
+    config_description : { type: String },
+    config_images      : [{type: String}],
+    
+     // Github API only includes 1 primary language for repo
+    config_tags: [{type: String}],
+    contributors: [{
+      config_role: { type: String },
+      config_full_name: { type: String },
+    }],
+  }
+  
 
-    // Identify users by login
-    login         : { type: String },
-    avatar_url    : { type: String },
-    html_url      : { type: String },
-    contributions : { type: Number },
-    config_role   : { type: String },
-    config_full_name: { type: String },
-  }],
-  config_date        : { type: String},
-  config_description : { type: String },
-  config_images      : [{type: String}],
-
-  // Github API only includes 1 primary language for repo
-  config_tags: [{type: String}],
+ 
 });
 
 // Export Schema

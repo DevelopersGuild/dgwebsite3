@@ -193,8 +193,8 @@ function paginateRepos(done) {
      * @param {function} [fn(callback)]
      *  [function that is called AT LEAST once
      *   And will continued to be called until TEST function is false.
-     *   To exit this loop to enter the next test loop call
-     *   the passed in callback function]
+     *   To exit this loop and enter the next test loop
+     *   call the passed in callback function]
      *
      * @param {function} [test]
      *  [The function to test for true/false and will end the loop
@@ -246,7 +246,7 @@ function paginateRepos(done) {
             });
         },
         // Test Function(tests for true/false to continue or exit the loop)
-        function () {
+        function(){
             // Checks if the link object has a next page or not
             // If it DOES NOT then exit the loop
             // if it DOES have a next page then continue the loop
@@ -254,8 +254,8 @@ function paginateRepos(done) {
             return lastLinksObject.hasOwnProperty('next');
         },
         // final callback function(called if error or when done)
-        function (err, result) {
-            if (err) done(err)
+        function(err, result){
+            if(err) done(err)
 
             // Send results to callback function
             done(null, repoList);
@@ -337,7 +337,7 @@ function linkParser(linksHeader, done) {
 
     // Exit the function via callback and return the result
     done(null, result);
-};
+}
 
 
 /**
