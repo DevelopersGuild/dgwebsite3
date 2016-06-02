@@ -84,3 +84,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Config File
+server/config.js
