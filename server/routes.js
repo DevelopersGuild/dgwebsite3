@@ -29,6 +29,14 @@ router.get('/invite', Slack.getSlackInvite);
 
 router.post('/invite', Slack.postSlackInvite);
 
+// Testing dgconfig.json call
+router.get('/dgconfig', function(req, res) {
+
+    Repositories.getDGConfig("node-app-basics", function(err, body) {
+        res.send(body);
+    });
+});
+
 
 // Export routes
 module.exports = router;
