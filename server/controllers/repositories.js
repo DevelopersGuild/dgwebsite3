@@ -75,7 +75,6 @@ function getDGConfig(repoName, done) {
     request(reqOptions, function (err, response, body) {
 
         if (err || response.statusCode !== 200) {
-            console.log(err);
             return done(err);
         }
 
@@ -240,7 +239,6 @@ function paginateRepos(done) {
 
                     // Set new URL to NEXT PAGE url
                     URL = lastLinksObject.next;
-                    console.log(URL);
                     callback(null, links);
                 });
             });
@@ -255,7 +253,7 @@ function paginateRepos(done) {
         },
         // final callback function(called if error or when done)
         function(err, result){
-            if(err) done(err)
+            if(err) done(err);
 
             // Send results to callback function
             done(null, repoList);
