@@ -15,9 +15,9 @@
     <li>created At: {{project.created_at}}</li>
     <li>updated At: {{project.updated_at}}</li>
     <li>homepage: {{project.homepage}}</li>
-    <li>file size: {{project.filesize}}</li>
+    <li>file size: {{project.size}}</li>
     <li>stars: {{project.stargazers_count}}</li>
-    <li>watchers: {{project.waters_count}}</li>
+    <li>watchers: {{project.watchers_count}}</li>
     <li>forks: {{project.forks_count}}</li>
     <li>Quarter Date: {{project.config.config_date}}</li>
     <li>description: {{project.config.config_description}}</li>
@@ -43,6 +43,7 @@
       <li>Name: {{member.config_full_name}} <br/>
           Role: {{member.config_role}}
       </li>
+      <br>
     </ul>
   {% endfor %}
 
