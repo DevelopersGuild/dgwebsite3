@@ -28,17 +28,14 @@ var repositorySchema = new Schema({
     config_date        : { type: String},
     config_description : { type: String },
     config_images      : [{type: String}],
-    
+
      // Github API only includes 1 primary language for repo
     config_tags: [{type: String}],
     contributors: [{
-      config_role: { type: String },
       config_full_name: { type: String },
+      config_role: { type: String },
     }],
   }
-  
-
- 
 });
 
 // Export Schema
