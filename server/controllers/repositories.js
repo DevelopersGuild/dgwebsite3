@@ -52,7 +52,7 @@ exports.getRepositoryList = function (req, res) {
  * @param  {String}   url  [URL of the readme file within the repository]
  * @param  {Function} done [callback function to call upon completion/failure]
  */
-exports.getDGConfig = function(repoName, done) {
+function getDGConfig(repoName, done) {
 
     var url = "https://raw.githubusercontent.com/DevelopersGuild/" + repoName + "/master/dgconfig.json";
 
@@ -83,7 +83,7 @@ exports.getDGConfig = function(repoName, done) {
 
         done(null, body);
     });
-};
+}
 
 
 /**
@@ -141,7 +141,7 @@ exports.saveRepo = function (req, res) {
              * @return {Function}       [ Callback function once request is finished to end one iteration
              *                            of the aynchronus loop ]
              */
-            requestRepository(reqOptions, function (err, result) {
+            requestRepository(reqOptions, item.name, function (err, result) {
                 if (err) console.log('error code: ' + err.code);
 
                 callback();
@@ -350,35 +350,45 @@ function linkParser(linksHeader, done) {
  * @param  {Function} callback   [callback function to call upon completion of the function]
  * @return {Function}            [End of function executes the passed in callback whether it succeeds or fails]
  */
-function requestRepository(reqOptions, callback) {
+function requestRepository(reqOptions, repoName, callback) {
 
     // Make api request using given request options
     request(reqOptions, function (err, response, body) {
         if (err || response.statusCode !== 200) {
             return callback(err);
         } else {
-            body = JSON.parse(body);
+            // configRes is the result of getDGConfig
+            getDGConfig(repoName, function(err, configRes) {
+                if (err) {
+                    callback(err);
+                }
 
-            // Query to search the database for the repo's full_name
-            // the update contents to update the database with is the contents of the body
-            // options
-            //  upsert = update info,
-            //  new = if no object found then create a new object
-            //  setDefaultsOnInsert = set default fields from model if they all aren't there
-            var query = {full_name: body.full_name},
-                update = body,
-                options = {upsert: true, new: true, setDefaultsOnInsert: true};
+                var currentRepo = JSON.parse(body);
+                if (configRes) {
+                    currentRepo.config = configRes.config;
+                }
 
-            // Make a request to the database to create OR update an object.
-            // If object is not found then create a new one in the database
-            Repository.findOneAndUpdate(query, update, options, function (err, result) {
-                if (err) return callback(err);
+                // Query to search the database for the repo's full_name
+                // the update contents to update the database with is the contents of the body
+                // options
+                //  upsert = update info,
+                //  new = if no object found then create a new object
+                //  setDefaultsOnInsert = set default fields from model if they all aren't there
+                var query = {full_name: currentRepo.full_name},
+                    update = currentRepo,
+                    options = {upsert: true, new: true, setDefaultsOnInsert: true};
 
-                console.log(result.full_name + " saved");
+                // Make a request to the database to create OR update an object.
+                // If object is not found then create a new one in the database
+                Repository.findOneAndUpdate(query, update, options, function (err, result) {
+                    if (err) return callback(err);
 
-                // Callback to end the function and return the updated/newly created object
-                callback(null, result);
+                    console.log(result.full_name + " saved");
+
+                    // Callback to end the function and return the updated/newly created object
+                    callback(null, result);
+                });
             });
         }
     });
-};
+}
