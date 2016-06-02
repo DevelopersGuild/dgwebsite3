@@ -56,3 +56,4 @@
   4. User submits information
   5. Information is validated and saved to database
   6. User is redirected to their project page(view)
+
