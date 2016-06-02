@@ -7,8 +7,46 @@
 </head>
 <body>
 
-<h1>[Repository Name]</h1><br/>
-<h3>this is from nunjucks >> {{lmao}} </h3>
+<h1>{{project.name}}</h1>
+<h3>{{project.config.config_description}}</h3>
+<h3>{{project.config.config_date}}</h3><br/>
+
+{% if (project.homepage) %}
+    {{project.homepage}}
+{% endif %}
+
+<h3>Watched by: {{project.subscribers_count}} user(s)</h3>
+<h3>Starred: {{project.stargazers_count}} time(s)</h3>
+<h3>Forked: {{project.forks_count}} time(s)</h3><br/>
+
+<h3>Created on: {{project.created_at}}</h3>
+<h3>Last commit: {{project.pushed_at}}</h3><br/>
+
+<h3>Contributors</h3>
+<ul>
+{% for contributor in project.config.contributors %}
+    <li><h4>{{contributor.config_full_name}}, {{contributor.config_role}}</h4></li>
+{% endfor %}
+</ul>
+
+<br/>
+<h3>Screenshots</h3>
+<ul>
+    {% for image in project.config.config_images %}
+        <img src="{{image}}">
+    {% endfor %}
+</ul>
+
+<br/>
+<h3>Technologies Used</h3>
+<ul>
+    {% for tag in project.config.config_tags %}
+        <li><h4>{{tag}}</h4></li>
+    {% endfor %}
+</ul>
+
+<br/>
+<h3><a href="{{project.html_url}}">View on GitHub</a></h3>
 
 </body>
 </html>

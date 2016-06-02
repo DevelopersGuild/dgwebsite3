@@ -27,7 +27,9 @@ exports.getRepository = function (req, res) {
     }, function (err, repository) {
         if (err) return res.send(err);
 
-        res.send(repository);
+        res.render('repositories/show', {
+            project: repository
+        });
     })
 };
 
@@ -41,6 +43,7 @@ exports.getRepository = function (req, res) {
 exports.getRepositoryList = function (req, res) {
     Repository.find({}, function (err, repositories) {
         if (err) return res.send(err);
+
         res.render('repositories/index', {
             projects: repositories
         })
