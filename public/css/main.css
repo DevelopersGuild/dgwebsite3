@@ -6,6 +6,10 @@ display: inline;
   background-color: #999;
 }
 
+body {
+  background-color: #f6f5f4;
+}
+
 /* Intro Section */
 .big-ass-tv {
   height: 510px;
@@ -16,17 +20,33 @@ display: inline;
   padding-bottom: 4rem;
 }
 
+.nav-section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.circle-button {
+  text-align: center;
+  width: 32.266667%;
+  margin-left: 1.6%;
+  padding: 75px 0;
+  background-color: rgba(93, 111, 255, 0.36);
+  border-radius: 50px;
+}
+
+#first-circle-btn {
+  margin-left: 0;
+}
+
 .sub-header {
   height: 180px;
   width: 100%;
   background-color: #78A09C;
-
 }
 
 .form-container {
+  background-color: lightgray;
   padding-top: 50px;
   padding-bottom: 50px;
   text-align: center;
 }
-
-
