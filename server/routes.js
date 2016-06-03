@@ -24,9 +24,6 @@ router.get('/repositories/update', Repositories.saveRepo);
 // Route for individual repository pages
 router.get('/repositories/:id', Repositories.getRepository);
 
-// Route for slack invite
-router.get('/invite', Slack.getSlackInvite);
-
 router.post('/invite', Slack.postSlackInvite);
 
 // Export routes
