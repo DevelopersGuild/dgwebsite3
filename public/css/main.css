@@ -10,4 +10,10 @@ display: inline;
   height: 180px;
   width: 100%;
   background-color: #78A09C;
+
+}
+
+.form-container {
+  padding-top: 50px;
+  text-align: center;
 }
