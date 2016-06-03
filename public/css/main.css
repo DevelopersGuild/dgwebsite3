@@ -6,6 +6,16 @@ display: inline;
   background-color: #999;
 }
 
+/* Intro Section */
+.big-ass-tv {
+  height: 510px;
+}
+
+.intro-section {
+  height: auto;
+  padding-bottom: 4rem;
+}
+
 .sub-header {
   height: 180px;
   width: 100%;
@@ -17,3 +27,5 @@ display: inline;
   padding-top: 50px;
   text-align: center;
 }
+
+
