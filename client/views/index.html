@@ -22,6 +22,8 @@
     <!-- Custom CSS -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/main.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -122,6 +124,17 @@
     </div>
 </section>
 
+<!-- Slack -->
+<section id="slack" class="slack-section">
+    <div class="form-container">
+        <h2>Join us on Slack!</h2>
+        <form method="POST" action="/invite" id="join-form" class="form">
+            <input type="text" name="email" placeholder="Enter Your Email Address" id="slack-email" class="field">
+            <input type="submit" value="Join" class="submit">
+        </form>
+    </div>
+</section>
+
 <!-- About Section -->
 <section id="projects" class="about-section">
     <div class="container">
@@ -176,6 +189,11 @@
 <!-- Scrolling Nav JavaScript -->
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/scrolling-nav.js"></script>
+
+<!-- Slack Invite JavaScript -->
+<script src="js/slack.js"></script>
+
+
 <!-- Google Analytics Tag Begin -->
 <script type="text/javascript">/* <![CDATA[ */(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
 <!-- Google Analytics Tag End -->

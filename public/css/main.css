@@ -5,3 +5,7 @@ display: inline;
 #dgtemp {
   background-color: #999;
 }
+
+.form-container {
+  text-align: center;
+}
