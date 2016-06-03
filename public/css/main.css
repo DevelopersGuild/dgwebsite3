@@ -6,6 +6,13 @@ display: inline;
   background-color: #999;
 }
 
+.sub-header {
+  height: 180px;
+  width: 100%;
+  background-color: #78A09C;
+
+}
+
 .form-container {
   padding-top: 50px;
   padding-bottom: 50px;
