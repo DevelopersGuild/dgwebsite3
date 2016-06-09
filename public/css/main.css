@@ -57,7 +57,6 @@ body {
 /* Navigation section */
 
 .nav-section-container {
-  margin-left: 40%;
 }
 
 .nav-section {
@@ -67,17 +66,11 @@ body {
 
 .circle-button {
   text-align: center;
-  width: 32.266667%;
-  margin-left: 1.6%;
   padding: 6rem 0;
   background-color: #78A19D;
   border-radius: 2px;
   border: 2px solid #C6D9DA;
   box-shadow: 5px 8px 0 0 #4D4856;
-}
-
-#first-circle-btn {
-  margin-left: 0;
 }
 
 /* sub header */
@@ -131,6 +124,16 @@ body {
 
   .sub-header-container {
     height: 8rem;
+  }
+
+  /* button grid styling */
+  #first-circle-btn {
+    margin-left: 0;
+  }
+
+  .circle-button {
+    width: 32.266667%;
+    margin-left: 1.6%;
   }
 }
 
