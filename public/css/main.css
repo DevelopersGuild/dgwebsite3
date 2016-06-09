@@ -131,3 +131,21 @@ body {
     height: 8rem;
   }
 }
+
+/* Projects section */
+
+/* Project Header */
+
+.projects-header {
+  background-color: #5C5C6F;  
+  height: 300px;
+  position: relative;
+}
+
+.projects-header-text {
+  text-transform: uppercase;
+  font-size: 7em;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
