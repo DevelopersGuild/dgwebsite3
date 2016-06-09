@@ -1,5 +1,5 @@
 #calculator {
-display: inline;
+  display: inline;
 }
 
 #dgtemp {
@@ -11,13 +11,44 @@ body {
 }
 
 /* Intro Section */
+
+
 .big-ass-tv {
   height: 510px;
+  background: none;
+  background-color: #2C2420;
+  border: 2rem solid #5C5C6F;
+  -webkit-box-shadow: 5px 8px 0px 0px rgba(76,64,81, 1);
+  -moz-box-shadow:    5px 8px 0px 0px rgba(76,64,81, 1);
+  box-shadow:         5px 8px 0px 0px rgba(76,64,81, 1);
 }
 
+.big-ass-tv:before{
+  content:""; 
+  display:block; 
+  position:absolute; 
+  z-index:-1; 
+  top:-2px; 
+  left:-2px; 
+  right:2px; 
+  bottom:2px; 
+  border-top:2rem solid green; 
+  border-left:2rem solid green}
+
 .intro-section {
+  background-color: #33252e;
+  /*background-color: #CC962E;*/
+  /*background-image:url('../img/dg_main_background.png');*/
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
   height: auto;
   padding-bottom: 4rem;
+
+}
+
+.intro-container {
+  padding-top: 150px;
 }
 
 .nav-section {
@@ -38,10 +69,20 @@ body {
   margin-left: 0;
 }
 
+/* sub header */
 .sub-header {
-  height: 180px;
   width: 100%;
   background-color: #78A09C;
+}
+
+.sub-header-child {
+  /*position: relative;
+  top: 50%;
+  transform: translateY(-50%);*/
+}
+
+.sub-header-container {
+  line-height: 8rem;
 }
 
 .form-container {

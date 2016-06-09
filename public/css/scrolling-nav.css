@@ -45,9 +45,8 @@ of those sections to manage the look and feel of the site. */
 
 .intro-section {
     height: 650px;
-    padding-top: 150px;
     text-align: center;
-    background: #33252e;
+    /*background: #33252e;*/
 }
 
 .about-section {
