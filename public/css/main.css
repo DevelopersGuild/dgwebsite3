@@ -70,8 +70,10 @@ body {
   width: 32.266667%;
   margin-left: 1.6%;
   padding: 6rem 0;
-  background-color: rgba(93, 111, 255, 0.36);
-  border-radius: 50px;
+  background-color: #78A19D;
+  border-radius: 2px;
+  border: 2px solid #C6D9DA;
+  box-shadow: 5px 8px 0 0 #4D4856;
 }
 
 #first-circle-btn {
@@ -81,12 +83,12 @@ body {
 /* sub header */
 .sub-header {
   width: 100%;
-  background-color: #948477;
+  background-color: #78A19D;
 
   /* box shadow styling */
   -webkit-box-shadow: 60px 10px 0px 5px #60505a;
   -moz-box-shadow: 60px 10px 0px 5px #60505a;
-  box-shadow: 60px 10px 0px 5px #60505a;
+  box-shadow: 60px 10px 0px 5px #446064;
 
   margin-bottom: 2rem;
 }
