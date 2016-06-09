@@ -40,8 +40,8 @@ body {
 
 .intro-section {
   background-color: #33252e;
-  /*background-color: #CC962E;*/
-  /*background-image:url('../img/dg_main_background.png');*/
+  background-color: #CC962E;
+  background-image:url('../img/dg_main_background.png');
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
@@ -51,7 +51,7 @@ body {
 }
 
 .intro-container {
-  padding-top: 150px;
+  padding-top: 100px;
 }
 
 /* Navigation section */
