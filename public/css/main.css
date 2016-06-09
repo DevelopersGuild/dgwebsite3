@@ -56,9 +56,6 @@ body {
 
 /* Navigation section */
 
-.nav-section-container {
-}
-
 .nav-section {
   padding-top: 10px;
   padding-bottom: 20px;
@@ -162,11 +159,43 @@ body {
   right:0;
 }
 
+.project-headers-container {
+  max-width: 1200px;
+}
+
 /* Projects list */
 .projects-list {
   list-style: none;
 }
 
 .projects-list li {
-  height: 25rem;
+  /*height: 25rem;*/
+  /* may need to add later, but currently unnecessary */
+}
+
+.projects-list li img {
+  width: 100%;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  .sub-header-child {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .sub-header-container {
+    height: 8rem;
+  }
+
+  /* button grid styling */
+  #first-circle-btn {
+    margin-left: 0;
+  }
+
+  .circle-button {
+    width: 32.266667%;
+    margin-left: 1.6%;
+  }
 }
