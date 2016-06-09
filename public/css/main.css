@@ -149,3 +149,12 @@ body {
   bottom:0;
   right:0;
 }
+
+/* Projects list */
+.projects-list {
+  list-style: none;
+}
+
+.projects-list li {
+  height: 25rem;
+}
