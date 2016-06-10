@@ -10,14 +10,12 @@ body {
     background-color: #f6f5f4;
 }
 
-
 /* Navbar header */
 
 .li-pipes {
     color: #f6f5f4;
     padding: 15px 0 15px 0;
 }
-
 
 /* Intro Section */
 
@@ -36,9 +34,7 @@ body {
     box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
 }
 
-
 /* 3d border effect */
-
 
 /*
 .big-ass-tv:before{
@@ -68,7 +64,6 @@ body {
 .intro-container {
     padding-top: 100px;
 }
-
 
 /* Navigation section */
 
@@ -120,7 +115,6 @@ body {
     margin: 0;
 }
 
-
 /* Main sub-header Title */
 
 .sub-header-text-child:nth-child(1) {
@@ -134,7 +128,6 @@ body {
     color: antiquewhite;
 }
 
-
 /* Meeting Info */
 
 .sub-header-info-child {
@@ -146,7 +139,6 @@ body {
     margin-bottom: 0;
 }
 
-
 /* Slack Section */
 
 .form-container {
@@ -156,7 +148,8 @@ body {
     text-align: center;
 }
 
-.slack-section {}
+.slack-section {
+}
 
 .slack-header {
     height: 10rem;
@@ -206,13 +199,11 @@ body {
     height: 2em;
 }
 
-
 /* Projects section */
 
 .projects-section {
     background-color: #362b3c;
 }
-
 
 /* Project Header */
 
@@ -250,7 +241,6 @@ body {
     float: left;
 }
 
-
 /* hide all but first image for mobile */
 
 .project-header-img:nth-child(2),
@@ -274,7 +264,6 @@ body {
     background: rgba(203, 191, 245, 0.8);
 }
 
-
 /* Projects list */
 
 .projects-list-container {
@@ -286,7 +275,6 @@ body {
     color: #fff;
 }
 
-
 /* project categories */
 
 .project-category-header {
@@ -297,9 +285,7 @@ body {
     box-shadow: 5px 8px 0 0 antiquewhite;
 }
 
-
 /* individual project container stylings */
-
 
 /* certain image dimensions require a higher, consistent height otherwise projects
 who's titles exceeds 1 line will end up having a different height from other projects and 
@@ -318,7 +304,6 @@ will make it so project items don't stay on the same row
     width: 100%;
     box-shadow: 5px 8px 0 0 #4D4856;
 }
-
 
 /* FAQ SECTION */
 
@@ -352,8 +337,7 @@ will make it so project items don't stay on the same row
     box-shadow: -12px 8px 0px 0px #491212;
 }
 
-
-/* Need a secondary inner container to provide 
+/* Need a secondary inner container to provide
 padding to text inside of parent container */
 
 .faq-inner-container {
@@ -373,7 +357,6 @@ padding to text inside of parent container */
     margin-bottom: 2rem;
     margin-left: 3rem;
 }
-
 
 /* Gallery/Lightbox/Carousel */
 
@@ -405,10 +388,10 @@ padding to text inside of parent container */
     right: 0.1em;
 }
 
-
 /* Contact Section */
 
-.contact-section {}
+.contact-section {
+}
 
 .contact-section .container {
     padding: 0;
@@ -429,7 +412,6 @@ padding to text inside of parent container */
     font-size: 0.8em;
 }
 
-
 /* Media Queries */
 
 @media screen and (min-width: 450px) {
@@ -437,6 +419,7 @@ padding to text inside of parent container */
     .pl-3x2 li {
         height: 28rem;
     }
+
     .pl-1x1 li {
         height: 31rem;
     }
@@ -459,11 +442,13 @@ padding to text inside of parent container */
     .jumbotron-container {
         height: 60vh;
     }
+
     .sub-header-child {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
     }
+
     .sub-header-container {
         height: 8rem;
     }
@@ -472,10 +457,12 @@ padding to text inside of parent container */
     #first-circle-btn {
         margin-left: 0;
     }
+
     .circle-button {
         width: 32.266667%;
         margin-left: 1.6%;
     }
+
     /* button grid styling */
     #first-nav-btn {
         margin-left: 0;
@@ -497,6 +484,7 @@ padding to text inside of parent container */
     .project-header-img {
         width: 33.333%;
     }
+
     /* show second image */
     .project-header-img:nth-child(2),
     .project-header-img:nth-child(3) {
