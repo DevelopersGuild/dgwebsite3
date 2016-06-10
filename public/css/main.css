@@ -298,7 +298,6 @@ padding to text inside of parent container */
     /* question left border styling */
     padding-left: 0.5em;
     border-left: 1rem solid maroon;
-
     margin-bottom: 4rem;
 }
 
@@ -335,6 +334,38 @@ padding to text inside of parent container */
 .nav-btn.next {
     right: 0.1em;
 }
+
+/* Contact Section */
+
+.contact-section {
+}
+
+.contact-section .container {
+    padding: 0;
+    position: relative;
+    top: 50%;
+}
+
+.contact-title {
+    font-size: 2.25em;
+    font-weight: 300;
+    color: #424242;
+    display:block;
+    margin: 0 0 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.contact-email {
+    font-size: 2.25em;
+    font-weight: 300;
+    color: #424242;
+    display:block;
+    margin: 0 0 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
 
 /* Media Queries */
 @media screen and (min-width: 450px) {
