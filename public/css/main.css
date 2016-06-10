@@ -86,13 +86,21 @@ body {
     box-shadow: 5px 8px 0 0 #4D4856;
 }
 
+.nav-button:hover {
+    transform: translate(5px, 8px);
+    box-shadow: none;
+}
+
+.nav-button:active {
+    box-shadow: inset -1px 0 13px 3px #4D4856;
+}
+
 .nav-btn-text {
     position: absolute;
     bottom: 0;
     left: 1rem;
     color: #C6D9DA;
 }
-
 
 /* sub header */
 
@@ -228,8 +236,8 @@ body {
     margin: 0 auto;
     padding: 0;
     border: 0;
+    color: white;
 }
-
 
 /* Project header images */
 
