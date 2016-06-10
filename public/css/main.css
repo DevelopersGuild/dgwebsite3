@@ -19,18 +19,18 @@ body {
 /* Intro Section */
 
 .jumbotron-container {
-  height: 40vh;
+    height: 40vh;
 }
 
 .big-ass-tv {
-  overflow-y: scroll;
-  height: 100%;
-  background: none;
-  background-color: #2C2420;
-  border: 2rem solid #5C5C6F;
-  -webkit-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
-  -moz-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
-  box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+    overflow-y: scroll;
+    height: 100%;
+    background: none;
+    background-color: #2C2420;
+    border: 2rem solid #5C5C6F;
+    -webkit-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+    -moz-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+    box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
 }
 
 /* 3d border effect */
@@ -124,11 +124,9 @@ body {
     color: antiquewhite;
 }
 
-
 .sub-header-info-child:nth-child(2) {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
-
 
 /* Slack Section */
 
@@ -140,7 +138,7 @@ body {
 }
 
 .slack-section {
-    
+
 }
 
 .slack-header {
@@ -260,33 +258,34 @@ will make it so project items don't stay on the same row
 
 .faq-section {
     background-image: url('../img/dg_main_background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .faq-header {
-     background-color: #544D5E;
-     border-radius: 50px;
-     box-shadow: -12px 8px 0px 0px maroon;
-     color: antiquewhite;
+    background-color: #544D5E;
+    border-radius: 50px;
+    box-shadow: -12px 8px 0px 0px maroon;
+    color: antiquewhite;
 }
 
 .faq-row-container {
-  margin-top: 5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .faq-container {
-  background-color: #544D5E;
-  color: antiquewhite;
+    background-color: #544D5E;
+    color: antiquewhite;
 
-  font-size: 2em;
-  line-height: 1.1em;
+    font-size: 2em;
+    line-height: 1.1em;
 
-  border-radius: 50px;
+    border-radius: 50px;
 
-  margin-bottom: .8rem;
-  box-shadow: -12px 8px 0px 0px maroon;
+    margin-bottom: .8rem;
+    box-shadow: -12px 8px 0px 0px maroon;
 }
 
 /* Need a secondary inner container to provide 
@@ -296,11 +295,11 @@ padding to text inside of parent container */
 }
 
 .faq-container .question {
-  /* question left border styling */
-  padding-left: 1em;
-  border-left: 1rem solid maroon;
+    /* question left border styling */
+    padding-left: 0.5em;
+    border-left: 1rem solid maroon;
 
-  margin-bottom: 4rem;  
+    margin-bottom: 4rem;
 }
 
 .faq-container .answer {
@@ -338,11 +337,21 @@ padding to text inside of parent container */
 }
 
 /* Media Queries */
+@media screen and (min-width: 450px) {
+    .pl-3x2 li {
+        height: 28rem;
+    }
+
+    .pl-1x1 li {
+        height: 31rem;
+    }
+}
+
 @media screen and (min-width: 768px) {
 
     /* intro section */
     .jumbotron-container {
-      height: 60vh;
+        height: 60vh;
     }
 
     .sub-header-child {

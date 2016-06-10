@@ -17,7 +17,9 @@
 
 $(document).ready(function() {
     var $owl = $(".owl-carousel");
-    $owl.owlCarousel();
+    $owl.owlCarousel({
+        loop: true
+    });
 
     $(".next").click(function() {
         $owl.trigger('next.owl.carousel');
@@ -26,7 +28,6 @@ $(document).ready(function() {
     $(".prev").click(function() {
         $owl.trigger('prev.owl.carousel');
     });
-
 });
 
 
