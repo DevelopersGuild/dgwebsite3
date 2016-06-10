@@ -121,31 +121,33 @@ body {
 
 .form-container {
     background-color: #fff;
-    padding-top: 50px;
+    padding-top: 25px;
     padding-bottom: 50px;
     text-align: center;
 }
 
 /* Slack Section */
 .slack-section {
+    
 }
 
 .slack-header {
-  height: 10rem;
-  line-height: 10rem;
+    height: 10rem;
+    line-height: 10rem;
 }
 
 .slack-header img {
-  display: inline-block;
-  max-height: 100%;
+    margin-left: -3rem;
+    display: inline-block;
+    max-height: 100%;
 }
 
 .slack-header h2 {
-  margin: 0 auto;
-  display: inline-block;
+    margin: 0 auto;
+    display: inline-block;
 
-  /* Center header vertically*/
-  vertical-align: middle;
+    /* Center header vertically*/
+    vertical-align: middle;
 }
 
 .slack-section-text {
@@ -177,8 +179,6 @@ body {
     font-size: 1.5em;
     height: 2em;
 }
-
-
 
 /* Projects section */
 
@@ -266,7 +266,7 @@ will make it so project items don't stay on the same row
         margin-left: 1.6%;
     }
 
-     /* button grid styling */
+    /* button grid styling */
     #first-nav-btn {
         margin-left: 0;
     }
