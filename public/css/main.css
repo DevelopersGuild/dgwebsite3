@@ -308,7 +308,19 @@ padding to text inside of parent container */
 
 }
 
+
+
 /* Media Queries */
+@media screen and (min-width: 450px) {
+    .pl-3x2 li {
+    height: 28rem;
+}
+
+.pl-1x1 li {
+    height: 31rem;
+}
+}
+
 @media screen and (min-width: 768px) {
 
     /* intro section */
