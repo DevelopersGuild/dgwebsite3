@@ -212,8 +212,10 @@ body {
     right: 0;
 }
 
-.project-headers-container {
-    max-width: 1200px;
+.projects-header-container {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
 }
 
 /* Projects list */
