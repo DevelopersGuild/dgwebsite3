@@ -353,23 +353,16 @@ padding to text inside of parent container */
 }
 
 .contact-title {
-    font-size: 2.25em;
+    font-size: 2.5em;
     font-weight: 300;
     color: #424242;
     display:block;
-    margin: 0 0 10px;
     font-family: "Open Sans", sans-serif;
     text-align: center;
 }
 
-.contact-email {
-    font-size: 2.25em;
-    font-weight: 300;
-    color: #424242;
-    display:block;
-    margin: 0 0 10px;
-    font-family: "Open Sans", sans-serif;
-    text-align: center;
+.contact-title a {
+    font-size: 0.8em;
 }
 
 
