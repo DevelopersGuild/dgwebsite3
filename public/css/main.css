@@ -126,30 +126,26 @@ body {
     text-align: center;
 }
 
-@media screen and (min-width: 768px) {
-    .sub-header-child {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .sub-header-container {
-        height: 8rem;
-    }
-
-    /* button grid styling */
-    #first-nav-btn {
-        margin-left: 0;
-    }
-
-    .nav-button {
-        width: 32.266667%;
-        margin-left: 1.6%;
-    }
-}
-
 /* Slack Section */
 .slack-section {
+}
+
+.slack-header {
+  height: 10rem;
+  line-height: 10rem;
+}
+
+.slack-header img {
+  display: inline-block;
+  max-height: 100%;
+}
+
+.slack-header h2 {
+  margin: 0 auto;
+  display: inline-block;
+
+  /* Center header vertically*/
+  vertical-align: middle;
 }
 
 .slack-section-text {
@@ -181,6 +177,8 @@ body {
     font-size: 1.5em;
     height: 2em;
 }
+
+
 
 /* Projects section */
 
@@ -264,6 +262,16 @@ will make it so project items don't stay on the same row
     }
 
     .circle-button {
+        width: 32.266667%;
+        margin-left: 1.6%;
+    }
+
+     /* button grid styling */
+    #first-nav-btn {
+        margin-left: 0;
+    }
+
+    .nav-button {
         width: 32.266667%;
         margin-left: 1.6%;
     }
