@@ -192,8 +192,8 @@ body {
 
 /* Projects section */
 
-.projects-parent-container {
-    background-color: palegreen;
+.projects-section {
+    background-color: #362b3c;
 }
 
 /* Project Header */
@@ -226,6 +226,7 @@ body {
 
 .projects-list {
     list-style: none;
+    color: #fff;
 }
 
 /* project categories */
