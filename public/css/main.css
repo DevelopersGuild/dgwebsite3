@@ -1,7 +1,270 @@
 #calculator {
-display: inline;
+    display: inline;
 }
 
 #dgtemp {
-  background-color: #999;
+    background-color: #999;
+}
+
+body {
+    background-color: #f6f5f4;
+}
+
+/* Navbar header */
+.li-pipes {
+    color: #f6f5f4;
+    padding: 15px 0 15px 0;
+}
+
+/* Intro Section */
+
+.big-ass-tv {
+    height: 510px;
+    background: none;
+    background-color: #2C2420;
+    border: 2rem solid #5C5C6F;
+    -webkit-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+    -moz-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+    box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+}
+
+/* 3d border effect */
+/*
+.big-ass-tv:before{
+  content:""; 
+  display:block; 
+  position:absolute; 
+  z-index:-1; 
+  top:-2px; 
+  left:-2px; 
+  right:2px; 
+  bottom:2px; 
+  border-top:2rem solid green; 
+  border-left:2rem solid green
+}*/
+
+.intro-section {
+    background-color: #33252e;
+    background-color: #CC962E;
+    background-image: url('../img/dg_main_background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    padding-bottom: 4rem;
+
+}
+
+.intro-container {
+    padding-top: 100px;
+}
+
+/* Navigation section */
+
+.nav-section {
+    margin-top: 5rem;
+    padding-bottom: 20px;
+}
+
+.nav-button {
+    text-align: center;
+    padding: 10rem 0;
+    background-color: #78A19D;
+    border-radius: 2px;
+    border: 2px solid #C6D9DA;
+    box-shadow: 5px 8px 0 0 #4D4856;
+}
+
+.nav-btn-text {
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    color: #C6D9DA;
+}
+
+/* sub header */
+.sub-header {
+    width: 100%;
+    background-color: #78A19D;
+
+    /* box shadow styling */
+    -webkit-box-shadow: 0px 10px 0px 5px #60505a;
+    -moz-box-shadow: 0px 10px 0px 5px #60505a;
+    box-shadow: 0px 10px 0px 5px #446064;
+
+    padding-bottom: 10px;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+}
+
+.sub-header-text-child {
+    margin: 0;
+}
+
+/* Main sub-header Title */
+.sub-header-text-child:nth-child(1) {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: antiquewhite;
+    text-shadow: 3px 1px 0px rosybrown;
+}
+
+.sub-header-text-child:nth-child(2) {
+    color: antiquewhite;
+}
+
+/* Meeting Info */
+.sub-header-info-child {
+    font-weight: 800;
+    color: antiquewhite;
+}
+
+.form-container {
+    background-color: #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .sub-header-child {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .sub-header-container {
+        height: 8rem;
+    }
+
+    /* button grid styling */
+    #first-nav-btn {
+        margin-left: 0;
+    }
+
+    .nav-button {
+        width: 32.266667%;
+        margin-left: 1.6%;
+    }
+}
+
+/* Slack Section */
+.slack-section {
+}
+
+.slack-section-text {
+    font-family: 'Lato', sans-serif;
+}
+
+.slack-join-button {
+    background: #2ab27b;
+    padding: 14px 32px 16px;
+    font-size: 1.6rem;
+    line-height: 1.2rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    color: #fff;
+}
+
+.slack-join-button:hover {
+    background: #2ab27b;
+    padding: 14px 32px 16px;
+    font-size: 1.6rem;
+    line-height: 1.2rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 5px 5px 0 0;
+}
+
+.slack-input-field {
+    font-size: 1.5em;
+    height: 2em;
+}
+
+/* Projects section */
+
+.projects-parent-container {
+    background-color: palegreen;
+}
+
+/* Project Header */
+
+.projects-header {
+    background-color: #5C5C6F;
+    height: 300px;
+    position: relative;
+}
+
+.projects-header-text {
+    text-transform: uppercase;
+    font-size: 7em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.project-headers-container {
+    max-width: 1200px;
+}
+
+/* Projects list */
+
+.projects-list-container {
+    margin-top: 4rem;
+}
+
+.projects-list {
+    list-style: none;
+}
+
+/* project categories */
+.project-category-header {
+    background-color: #4D4856;
+    text-align: center;
+    color: lightblue;
+
+    border-radius: 157px 157px 157px 157px;
+    box-shadow: 5px 8px 0 0 antiquewhite;
+}
+
+/* individual container stylings */
+/* certain image dimensions require a higher, consistent height otherwise projects
+who's titles exceeds 1 line will end up having a different height from other projects and 
+will make it so project items don't stay on the same row 
+*/
+.pl-3x2 li {
+    height: 28rem;
+}
+
+.pl-1x1 li {
+    height: 31rem;
+}
+
+.projects-list li img {
+    width: 100%;
+    box-shadow: 5px 8px 0 0 #4D4856;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    .sub-header-child {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .sub-header-container {
+        height: 8rem;
+    }
+
+    /* button grid styling */
+    #first-circle-btn {
+        margin-left: 0;
+    }
+
+    .circle-button {
+        width: 32.266667%;
+        margin-left: 1.6%;
+    }
 }

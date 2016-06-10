@@ -64,6 +64,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# JetBrains
+/.idea
+
+# Visual Studio Code
+/.vscode
 
 ### Windows ###
 # Windows image file caches
