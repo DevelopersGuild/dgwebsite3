@@ -274,6 +274,7 @@ will make it so project items don't stay on the same row
 
 .faq-row-container {
   margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .faq-container {
@@ -297,7 +298,7 @@ padding to text inside of parent container */
 
 .faq-container .question {
   /* question left border styling */
-  padding-left: 1em;
+  padding-left: 0.5em;
   border-left: 1rem solid maroon;
 
   margin-bottom: 4rem;  
