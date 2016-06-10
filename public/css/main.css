@@ -270,6 +270,7 @@ will make it so project items don't stay on the same row
     border-radius: 50px;
     box-shadow: -12px 8px 0px 0px maroon;
     color: antiquewhite;
+    margin-bottom: 1rem;
 }
 
 .faq-row-container {
@@ -286,7 +287,7 @@ will make it so project items don't stay on the same row
 
     border-radius: 50px;
 
-    margin-bottom: .8rem;
+    margin-bottom: 1rem;
     box-shadow: -12px 8px 0px 0px maroon;
 }
 
@@ -300,11 +301,14 @@ padding to text inside of parent container */
     /* question left border styling */
     padding-left: 0.5em;
     border-left: 1rem solid maroon;
-    margin-bottom: 4rem;
+    margin: 2rem 2rem 2rem 3rem;
 }
 
 .faq-container .answer {
-
+    margin-top: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 3rem;
 }
 
 /* Gallery/Lightbox/Carousel */
