@@ -238,7 +238,7 @@ body {
     box-shadow: 5px 8px 0 0 antiquewhite;
 }
 
-/* individual container stylings */
+/* individual project container stylings */
 /* certain image dimensions require a higher, consistent height otherwise projects
 who's titles exceeds 1 line will end up having a different height from other projects and 
 will make it so project items don't stay on the same row 
@@ -254,6 +254,57 @@ will make it so project items don't stay on the same row
 .projects-list li img {
     width: 100%;
     box-shadow: 5px 8px 0 0 #4D4856;
+}
+
+/* FAQ SECTION */
+
+.faq-section {
+    background-image: url('../img/dg_main_background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.faq-header {
+     background-color: #544D5E;
+     border-radius: 50px;
+     box-shadow: -12px 8px 0px 0px maroon;
+     color: antiquewhite;
+}
+
+.faq-row-container {
+  margin-top: 5rem;
+}
+
+.faq-container {
+  background-color: #544D5E;
+  color: antiquewhite;
+
+  font-size: 2em;
+  line-height: 1.1em;
+
+  border-radius: 50px;
+
+  margin-bottom: .8rem;
+  box-shadow: -12px 8px 0px 0px maroon;
+}
+
+/* Need a secondary inner container to provide 
+padding to text inside of parent container */
+.faq-inner-container {
+    padding: 2rem;
+}
+
+.faq-container .question {
+  /* question left border styling */
+  padding-left: 1em;
+  border-left: 1rem solid maroon;
+
+  margin-bottom: 4rem;  
+}
+
+.faq-container .answer {
+
 }
 
 /* Media Queries */
