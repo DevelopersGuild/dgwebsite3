@@ -321,9 +321,9 @@ will make it so project items don't stay on the same row
 }
 
 .faq-header {
-    background-color: #544D5E;
+    background-color: #564149;
     border-radius: 50px;
-    box-shadow: -12px 8px 0px 0px maroon;
+    box-shadow: -12px 8px 0px 0px #491212;
     color: antiquewhite;
     margin-bottom: 1rem;
 }
@@ -334,13 +334,13 @@ will make it so project items don't stay on the same row
 }
 
 .faq-container {
-    background-color: #544D5E;
+    background-color: #564149;
     color: antiquewhite;
     font-size: 2em;
     line-height: 1.1em;
     border-radius: 50px;
     margin-bottom: 1rem;
-    box-shadow: -12px 8px 0px 0px maroon;
+    box-shadow: -12px 8px 0px 0px #491212;
 }
 
 
@@ -354,7 +354,7 @@ padding to text inside of parent container */
 .faq-container .question {
     /* question left border styling */
     padding-left: 0.5em;
-    border-left: 1rem solid maroon;
+    border-left: 1rem solid #bc4343;
     margin: 2rem 2rem 2rem 3rem;
 }
 
