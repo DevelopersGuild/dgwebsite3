@@ -10,11 +10,14 @@ body {
     background-color: #f6f5f4;
 }
 
+
 /* Navbar header */
+
 .li-pipes {
     color: #f6f5f4;
     padding: 15px 0 15px 0;
 }
+
 
 /* Intro Section */
 
@@ -33,7 +36,10 @@ body {
     box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
 }
 
+
 /* 3d border effect */
+
+
 /*
 .big-ass-tv:before{
   content:""; 
@@ -57,12 +63,12 @@ body {
     background-position: center;
     height: auto;
     padding-bottom: 4rem;
-
 }
 
 .intro-container {
     padding-top: 100px;
 }
+
 
 /* Navigation section */
 
@@ -87,16 +93,16 @@ body {
     color: #C6D9DA;
 }
 
+
 /* sub header */
+
 .sub-header {
     width: 100%;
     background-color: #78A19D;
-
     /* box shadow styling */
     -webkit-box-shadow: 0px 10px 0px 5px #60505a;
     -moz-box-shadow: 0px 10px 0px 5px #60505a;
     box-shadow: 0px 10px 0px 5px #446064;
-
     padding-bottom: 10px;
     margin-bottom: 2rem;
     margin-top: 5rem;
@@ -106,7 +112,9 @@ body {
     margin: 0;
 }
 
+
 /* Main sub-header Title */
+
 .sub-header-text-child:nth-child(1) {
     font-weight: 800;
     text-transform: uppercase;
@@ -118,7 +126,9 @@ body {
     color: antiquewhite;
 }
 
+
 /* Meeting Info */
+
 .sub-header-info-child {
     font-weight: 800;
     color: antiquewhite;
@@ -127,6 +137,7 @@ body {
 .sub-header-info-child:nth-child(2) {
     margin-bottom: 0;
 }
+
 
 /* Slack Section */
 
@@ -137,9 +148,7 @@ body {
     text-align: center;
 }
 
-.slack-section {
-
-}
+.slack-section {}
 
 .slack-header {
     height: 10rem;
@@ -155,7 +164,6 @@ body {
 .slack-header h2 {
     margin: 0 auto;
     display: inline-block;
-
     /* Center header vertically*/
     vertical-align: middle;
 }
@@ -190,11 +198,13 @@ body {
     height: 2em;
 }
 
+
 /* Projects section */
 
 .projects-section {
     background-color: #362b3c;
 }
+
 
 /* Project Header */
 
@@ -216,7 +226,45 @@ body {
     position: relative;
     height: 100%;
     margin: 0 auto;
+    padding: 0;
+    border: 0;
 }
+
+
+/* Project header images */
+
+.project-header-img {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: inline-block;
+    float: left;
+}
+
+
+/* hide all but first image for mobile */
+
+.project-header-img:nth-child(2),
+.project-header-img:nth-child(3) {
+    display: none;
+}
+
+.tint {
+    height: 100%;
+}
+
+.tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all .3s linear;
+    background: rgba(255, 0, 240, 0.5);
+}
+
 
 /* Projects list */
 
@@ -229,21 +277,26 @@ body {
     color: #fff;
 }
 
+
 /* project categories */
+
 .project-category-header {
     background-color: #4D4856;
     text-align: center;
     color: lightblue;
-
     border-radius: 157px 157px 157px 157px;
     box-shadow: 5px 8px 0 0 antiquewhite;
 }
 
+
 /* individual project container stylings */
+
+
 /* certain image dimensions require a higher, consistent height otherwise projects
 who's titles exceeds 1 line will end up having a different height from other projects and 
 will make it so project items don't stay on the same row 
 */
+
 .pl-3x2 li {
     height: 28rem;
 }
@@ -256,6 +309,7 @@ will make it so project items don't stay on the same row
     width: 100%;
     box-shadow: 5px 8px 0 0 #4D4856;
 }
+
 
 /* FAQ SECTION */
 
@@ -282,18 +336,17 @@ will make it so project items don't stay on the same row
 .faq-container {
     background-color: #544D5E;
     color: antiquewhite;
-
     font-size: 2em;
     line-height: 1.1em;
-
     border-radius: 50px;
-
     margin-bottom: 1rem;
     box-shadow: -12px 8px 0px 0px maroon;
 }
 
+
 /* Need a secondary inner container to provide 
 padding to text inside of parent container */
+
 .faq-inner-container {
     padding: 2rem;
 }
@@ -311,6 +364,7 @@ padding to text inside of parent container */
     margin-bottom: 2rem;
     margin-left: 3rem;
 }
+
 
 /* Gallery/Lightbox/Carousel */
 
@@ -342,10 +396,10 @@ padding to text inside of parent container */
     right: 0.1em;
 }
 
+
 /* Contact Section */
 
-.contact-section {
-}
+.contact-section {}
 
 .contact-section .container {
     padding: 0;
@@ -357,7 +411,7 @@ padding to text inside of parent container */
     font-size: 2.5em;
     font-weight: 300;
     color: #424242;
-    display:block;
+    display: block;
     font-family: "Open Sans", sans-serif;
     text-align: center;
 }
@@ -368,50 +422,64 @@ padding to text inside of parent container */
 
 
 /* Media Queries */
+
 @media screen and (min-width: 450px) {
+    /* Project header images */
+    .project-header-img {
+        width: 50%;
+    }
+    /* show second image */
+    .project-header-img:nth-child(2) {
+        display: inline-block;
+    }
+    /* projects list of images */
     .pl-3x2 li {
         height: 28rem;
     }
-
     .pl-1x1 li {
         height: 31rem;
     }
 }
 
 @media screen and (min-width: 768px) {
-
     /* intro section */
     .jumbotron-container {
         height: 60vh;
     }
-
     .sub-header-child {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
     }
-
     .sub-header-container {
         height: 8rem;
     }
-
     /* button grid styling */
     #first-circle-btn {
         margin-left: 0;
     }
-
     .circle-button {
         width: 32.266667%;
         margin-left: 1.6%;
     }
-
     /* button grid styling */
     #first-nav-btn {
         margin-left: 0;
     }
-
     .nav-button {
         width: 32.266667%;
         margin-left: 1.6%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    /* Project header images */
+    .project-header-img {
+        width: 33.333%;
+    }
+    /* show second image */
+    .project-header-img:nth-child(2),
+    .project-header-img:nth-child(3) {
+        display: inline-block;
     }
 }
