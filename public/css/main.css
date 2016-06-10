@@ -63,13 +63,9 @@ body {
 
 /* Navigation section */
 
-.nav-section-container {
-}
-
 .nav-section {
-  padding-top: 10px;
+  margin-top: 5rem;
   padding-bottom: 20px;
-  background-image:url('../img/dg_main_background.png');
 }
 
 .nav-button {
@@ -94,12 +90,13 @@ body {
   background-color: #78A19D;
 
   /* box shadow styling */
-  -webkit-box-shadow: 60px 10px 0px 5px #60505a;
-  -moz-box-shadow: 60px 10px 0px 5px #60505a;
-  box-shadow: 60px 10px 0px 5px #446064;
+  -webkit-box-shadow: 0px 10px 0px 5px #60505a;
+  -moz-box-shadow: 0px 10px 0px 5px #60505a;
+  box-shadow: 0px 10px 0px 5px #446064;
 
   padding-bottom: 10px;
   margin-bottom: 2rem;
+  margin-top: 5rem;
 }
 
 .sub-header-text-child {
@@ -188,6 +185,10 @@ body {
 
 /* Projects section */
 
+.projects-parent-container {
+  background-color: palegreen;
+}
+
 /* Project Header */
 
 .projects-header {
@@ -204,11 +205,68 @@ body {
   right:0;
 }
 
+.project-headers-container {
+  max-width: 1200px;
+}
+
 /* Projects list */
+
+.projects-list-container {
+  margin-top: 4rem;
+}
+
 .projects-list {
   list-style: none;
 }
 
-.projects-list li {
-  height: 25rem;
+
+/* project categories */
+.project-category-header {
+  background-color: #4D4856;
+  text-align: center;
+  color: lightblue;
+
+  border-radius: 157px 157px 157px 157px;
+  box-shadow: 5px 8px 0 0 antiquewhite;
+}
+
+/* individual container stylings */
+/* certain image dimensions require a higher, consistent height otherwise projects
+who's titles exceeds 1 line will end up having a different height from other projects and 
+will make it so project items don't stay on the same row 
+*/
+.pl-3x2 li {
+  height: 28rem;
+}
+
+.pl-1x1 li {
+  height: 31rem;
+}
+
+.projects-list li img {
+  width: 100%;
+  box-shadow: 5px 8px 0 0 #4D4856;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  .sub-header-child {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .sub-header-container {
+    height: 8rem;
+  }
+
+  /* button grid styling */
+  #first-circle-btn {
+    margin-left: 0;
+  }
+
+  .circle-button {
+    width: 32.266667%;
+    margin-left: 1.6%;
+  }
 }
