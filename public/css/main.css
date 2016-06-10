@@ -209,12 +209,13 @@ body {
 /* Project Header */
 
 .projects-header {
-    background-color: #5C5C6F;
+    background-color: #f6f5f4;
     height: 300px;
     position: relative;
 }
 
 .projects-header-text {
+    color: #d6d5d4;
     text-transform: uppercase;
     font-size: 7em;
     position: absolute;
@@ -262,7 +263,7 @@ body {
     left: 0;
     right: 0;
     transition: all .3s linear;
-    background: rgba(255, 0, 240, 0.5);
+    background: rgba(215, 0, 160, 0.5);
 }
 
 
