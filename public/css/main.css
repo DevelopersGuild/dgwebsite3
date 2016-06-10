@@ -18,14 +18,19 @@ body {
 
 /* Intro Section */
 
+.jumbotron-container {
+  height: 40vh;
+}
+
 .big-ass-tv {
-    height: 510px;
-    background: none;
-    background-color: #2C2420;
-    border: 2rem solid #5C5C6F;
-    -webkit-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
-    -moz-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
-    box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+  overflow-y: scroll;
+  height: 100%;
+  background: none;
+  background-color: #2C2420;
+  border: 2rem solid #5C5C6F;
+  -webkit-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+  -moz-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
+  box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
 }
 
 /* 3d border effect */
@@ -119,6 +124,14 @@ body {
     color: antiquewhite;
 }
 
+
+.sub-header-info-child:nth-child(2) {
+  margin-bottom: 0;
+}
+
+
+/* Slack Section */
+
 .form-container {
     background-color: #fff;
     padding-top: 50px;
@@ -126,7 +139,6 @@ body {
     text-align: center;
 }
 
-/* Slack Section */
 .slack-section {
 }
 
@@ -246,6 +258,12 @@ will make it so project items don't stay on the same row
 
 /* Media Queries */
 @media screen and (min-width: 768px) {
+
+    /* intro section */
+    .jumbotron-container {
+      height: 60vh;
+    }
+
     .sub-header-child {
         position: relative;
         top: 50%;
