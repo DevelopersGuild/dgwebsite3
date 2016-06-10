@@ -125,7 +125,7 @@ body {
 }
 
 .form-container {
-  background-color: lightgray;
+  background-color: #fff;
   padding-top: 50px;
   padding-bottom: 50px;
   text-align: center;
@@ -151,6 +151,39 @@ body {
     width: 32.266667%;
     margin-left: 1.6%;
   }
+}
+
+/* Slack Section */
+.slack-section {
+}
+
+.slack-section-text {
+}
+
+.slack-join-button {
+  background: #2ab27b;
+  padding: 14px 32px 16px;
+  font-size: 1.6rem;
+  line-height: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+.slack-join-button:hover {
+  background: #2ab27b;
+  padding: 14px 32px 16px;
+  font-size: 1.6rem;
+  line-height: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 5px 5px 0 0;
+}
+
+.slack-input-field {
+  font-size: 1.5em;
+  height: 2em;
 }
 
 /* Projects section */
