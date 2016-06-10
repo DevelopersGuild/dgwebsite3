@@ -41,58 +41,6 @@ the code in the IF statement will NOT be outputted
   <h1>
     <a href="/repositories/{{project.name}}">{{project.name}}</a><br>
   </h1>
-
-  <h2>Project Info</h2>
-  <ul>
-    <li>name: {{project.name}}</li>
-    <li>full_name: {{project.full_name}}</li>
-    <li>subscribers count: {{project.subscribers_Count}}</li>
-    <li>HTML URL: {{project.html_url}}</li>
-    <li>created At: {{project.created_at}}</li>
-    <li>updated At: {{project.updated_at}}</li>
-    <li>pushed At: {{project.pushed_at}}</li>
-    <li>homepage: {{project.homepage}}</li>
-    <li>file size: {{project.size}}</li>
-    <li>stars: {{project.stargazers_count}}</li>
-    <li>watchers: {{project.watchers_count}}</li>
-    <li>forks: {{project.forks_count}}</li>
-
-    <!-- Quarter Date and Description are from config files.
-    if the team who runs the repository does NOT include a config file these fileds will be left blank -->
-    <li>Quarter Date: {{project.config.config_date}}</li>
-    <li>description: {{project.config.config_description}}</li>
-  </ul>
-  
-  <h2>Project Tags</h2>
-  <ul>
-  {% for tag in project.config.config_tags %}
-    
-    <li>{{tag}}</li>
-    
-  {% endfor %}
-  </ul>
-
-  <h2>Project Images</h2>
-  <ul>
-  {% for image in project.config.config_images %}
-    
-    <li><img src="{{image}}" alt=""></li>
-    
-  {% endfor %}
-  </ul>
-
-  <h2>Contributors / Team Members</h2>
-  <ul>
-  {% for member in project.config.contributors %}
-    <li>Name: {{member.config_full_name}} <br/>
-        Role: {{member.config_role}}
-    </li>
-    <br>
-  {% endfor %}
-  </ul>
-
-
-  <hr>
 </li>
 {% endfor%}
 </ul>
