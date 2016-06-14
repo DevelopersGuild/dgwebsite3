@@ -24,7 +24,7 @@ body {
 }
 
 .big-ass-tv {
-    overflow-y: scroll;
+    overflow: hidden;
     height: 100%;
     background: none;
     background-color: #2C2420;
@@ -368,6 +368,16 @@ padding to text inside of parent container */
     position: relative;
 }
 
+.tv-gallery-section {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tv-item {
+  
+}
+
 
 .nav-btn {
     position: absolute;
@@ -385,11 +395,13 @@ padding to text inside of parent container */
     cursor: pointer;
 }
 
-.nav-btn.prev {
+.nav-btn.prev,
+.nav-btn.tv-prev {
     left: 0.1em;
 }
 
-.nav-btn.next {
+.nav-btn.next,
+.nav-btn.tv-next {
     right: 0.1em;
 }
 

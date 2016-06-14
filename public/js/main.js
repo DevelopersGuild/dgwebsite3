@@ -16,7 +16,8 @@
  */
 
 $(document).ready(function() {
-    var $owl = $(".owl-carousel");
+    var $owl = $(".gallery-owl-carousel");
+
     $owl.owlCarousel({
         loop: true
     });
@@ -27,6 +28,22 @@ $(document).ready(function() {
 
     $(".prev").click(function() {
         $owl.trigger('prev.owl.carousel');
+    });
+
+    // tv carousel
+    var $tvOwl = $(".tv-owl-carousel");
+    
+    $tvOwl.owlCarousel({
+        loop: true,
+        items: 1,
+    });
+
+    $(".tv-next").click(function() {
+        $tvOwl.trigger('next.owl.carousel');
+    });
+
+    $(".tv-prev").click(function() {
+        $tvOwl.trigger('prev.owl.carousel');
     });
 });
 
