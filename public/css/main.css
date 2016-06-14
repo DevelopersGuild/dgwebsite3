@@ -364,6 +364,11 @@ padding to text inside of parent container */
     position: relative;
 }
 
+.tv-gallery-slider {
+    position: relative;
+}
+
+
 .nav-btn {
     position: absolute;
     color: white;
