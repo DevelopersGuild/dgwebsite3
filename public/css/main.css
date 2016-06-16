@@ -407,7 +407,10 @@ padding to text inside of parent container */
 
 /* Contact Section */
 
-.contact-section {
+.contact-container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .contact-section .container {
