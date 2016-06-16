@@ -44,7 +44,7 @@ exports.getRepositoryList = function (req, res) {
     Repository.find({}, function (err, repositories) {
         if (err) return res.send(err);
 
-        res.render('repositories/index', {
+        res.render('pages/repositoriesPage/index', {
             projects: repositories
         })
     });
