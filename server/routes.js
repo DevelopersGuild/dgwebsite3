@@ -12,7 +12,7 @@ var Slack        = require('./controllers/slack');
 
 // Root route
 router.get('/', function(req, res) {
-    res.render('index');
+    res.render('pages/indexPage/index');
 });
 
 // Route for list of repositories
