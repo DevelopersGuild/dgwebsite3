@@ -26,37 +26,16 @@ body {
 .big-ass-tv {
     overflow: hidden;
     height: 100%;
-    background: none;
-    background-color: #2C2420;
+    background: #2C2420 none;
     border: 2rem solid #5C5C6F;
     -webkit-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
     -moz-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
     box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
 }
 
-/* 3d border effect */
-
-/*
-.big-ass-tv:before{
-  content:""; 
-  display:block; 
-  position:absolute; 
-  z-index:-1; 
-  top:-2px; 
-  left:-2px; 
-  right:2px; 
-  bottom:2px; 
-  border-top:2rem solid green; 
-  border-left:2rem solid green
-}*/
-
 .intro-section {
-    background-color: #33252e;
-    background-color: #CC962E;
-    background-image: url('../img/dg_main_yellow_background.png');
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background: url('../img/dg_main_yellow_background.png') no-repeat center;
     height: auto;
     padding-bottom: 4rem;
 }
@@ -202,10 +181,9 @@ body {
 /* Projects section */
 
 .projects-section {
-    background-image: url('../img/dg_main_green_background.png');
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;}
+    background: url('../img/dg_main_green_background.png') no-repeat center;
+}
 
 /* Project Header */
 
@@ -310,10 +288,8 @@ will make it so project items don't stay on the same row
 /* FAQ SECTION */
 
 .faq-section {
-    background-image: url('../img/dg_main_yellow_background.png');
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background: url('../img/dg_main_yellow_background.png') no-repeat center;
 }
 
 .faq-header {
@@ -354,20 +330,15 @@ padding to text inside of parent container */
 }
 
 .faq-container .answer {
-    margin-top: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 3rem;
+    margin: 2rem 2rem 2rem 3rem;
 }
 
 /* Gallery/Lightbox/Carousel */
 
 .gallery-section {
     padding: 200px 0;
-    background-image: url('../img/dg_main_red_background.png');
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background: url('../img/dg_main_red_background.png') no-repeat center;
 }
 
 .gallery-header {
@@ -399,15 +370,14 @@ padding to text inside of parent container */
 }
 
 .tv-gallery-section {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .tv-item {
-  
-}
 
+}
 
 .nav-btn {
     position: absolute;
@@ -438,9 +408,9 @@ padding to text inside of parent container */
 /* Contact Section */
 
 .contact-container {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .contact-section .container {
@@ -462,13 +432,12 @@ padding to text inside of parent container */
     font-size: 0.8em;
 }
 
-
 /* Repositories Page */
 
 .repos-main {
-  /*padding-top: 100px;*/
-  max-width: 1200px;
-  margin: 0 auto;
+    /*padding-top: 100px;*/
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* repos page header */
@@ -487,7 +456,7 @@ padding to text inside of parent container */
     position: absolute;
     bottom: 5%;
     right: 5%;
-    
+
     /* line height 0 so it will blend into the border-bottom color */
     line-height: 0;
     margin: 0;
@@ -504,24 +473,23 @@ padding to text inside of parent container */
 
 /* repos list main body */
 .repos-list {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 .repos-list li {
-  margin-bottom: 1rem;
-  padding: 4rem;
+    margin-bottom: 1rem;
+    padding: 4rem;
 
-  border-radius: 5px;
-  box-shadow: -15px 13px 0px 2px #4D4856;
+    border-radius: 5px;
+    box-shadow: -15px 13px 0px 2px #4D4856;
 
-  background-color: #DFDFDF;
+    background-color: #DFDFDF;
 }
 
 .repos-list li h3 {
-  margin: 0;
+    margin: 0;
 }
-
 
 /* Media Queries */
 
@@ -537,8 +505,7 @@ padding to text inside of parent container */
 
     /* repos list */
     .repos-list-container {
-      padding: 0;
-      padding-top: 3rem;
+        padding: 3rem 0 0;
     }
 }
 
@@ -555,7 +522,7 @@ padding to text inside of parent container */
 
     /* repos list */
     .repos-list-container {
-      padding: 3rem;
+        padding: 3rem;
     }
 }
 
@@ -602,7 +569,7 @@ padding to text inside of parent container */
 
     /* repos list */
     .repos-list-container {
-      padding: 7rem;
+        padding: 7rem;
     }
 }
 
