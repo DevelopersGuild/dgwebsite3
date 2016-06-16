@@ -462,9 +462,70 @@ padding to text inside of parent container */
     font-size: 0.8em;
 }
 
+
+/* Repositories Page */
+
+.repos-main {
+  /*padding-top: 100px;*/
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* repos page header */
+.repos-header {
+    background-color: #3d3d3d;
+    height: 350px;
+    position: relative;
+
+    border-bottom: 4rem solid red;
+}
+
+.repos-header-text {
+    color: #d6d5d4;
+    font-size: 4em;
+
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    
+    /* line height 0 so it will blend into the border-bottom color */
+    line-height: 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.repos-header-container {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    border: 0;
+    color: white;
+}
+
+/* repos list main body */
+.repos-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.repos-list li {
+  margin-bottom: 1rem;
+  padding: 4rem;
+
+  border-radius: 5px;
+  box-shadow: -15px 13px 0px 2px #4D4856;
+
+  background-color: #DFDFDF;
+}
+
+.repos-list li h3 {
+  margin: 0;
+}
+
+
 /* Media Queries */
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 320px) {
     /* projects list of images */
     .pl-3x2 li {
         height: 28rem;
@@ -472,6 +533,12 @@ padding to text inside of parent container */
 
     .pl-1x1 li {
         height: 31rem;
+    }
+
+    /* repos list */
+    .repos-list-container {
+      padding: 0;
+      padding-top: 3rem;
     }
 }
 
@@ -484,6 +551,11 @@ padding to text inside of parent container */
     /* show second image */
     .project-header-img:nth-child(2) {
         display: inline-block;
+    }
+
+    /* repos list */
+    .repos-list-container {
+      padding: 3rem;
     }
 }
 
@@ -526,6 +598,11 @@ padding to text inside of parent container */
     /*projects section */
     .projects-header-text {
         font-size: 7em;
+    }
+
+    /* repos list */
+    .repos-list-container {
+      padding: 7rem;
     }
 }
 

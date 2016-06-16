@@ -1,0 +1,22 @@
+{% extends 'partials/layout.html' %}
+
+{% block content %}
+  <section class="repos-main fluid-container">
+  <div class="repos-header">
+    <div class="repos-header-container">
+      <h1 class="repos-header-text">Projects</h1>
+    </div>
+  </div>
+  <div class="repos-list-container">
+    <ul class="repos-list">
+      {% for project in projects %}
+        <li>
+          <h3>
+            <a href="/repositories/{{project.name}}">{{project.name}}</a>
+          </h3>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  </section>
+{% endblock %}
