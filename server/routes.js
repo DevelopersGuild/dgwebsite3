@@ -21,6 +21,11 @@ router.get('/projects', Repositories.getRepositoryList);
 // Test route to save info to the database
 router.get('/repositories/update', Repositories.saveRepo);
 
+// Join the mailing list
+router.get('/join', function(req, res) {
+      res.redirect('http://eepurl.com/boktMz');
+});
+
 // Route for individual repository pages
 router.get('/projects/:id', Repositories.getRepository);
 
