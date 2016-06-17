@@ -3,7 +3,9 @@
 {% block content %}
   <div class="container repo-container">
     <div class="row">
-      <div class="col-sm-12 col-md-4">
+
+      <!-- title and stats -->
+      <div class="col-sm-12 col-md-4 col-lg-2">
         <h1 class="project-title">
         {{project.name}}
         </h1>
@@ -19,6 +21,11 @@
             <i class="fa fa-code-fork" aria-hidden="true"></i> {{project.forks_count}}
           </div>
         </div>
+      </div>
+
+      <!-- main content -->
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10">
+        
         <h3>
         {% if (project.config.config_description) %}
           {{project.config.config_description}}
@@ -29,44 +36,46 @@
             {{project.config.config_date}}
           {% endif %}
         </h3><br/>
+
+
+        <h3>Created on: {{project.created_at}}</h3>
+        <h3>Last commit: {{project.pushed_at}}</h3><br/>
+
+        <h3>Contributors</h3>
+        <ul>
+        {% for contributor in project.config.contributors %}
+            <li><h4>{{contributor.config_full_name}}, {{contributor.config_role}}</h4></li>
+        {% endfor %}
+        </ul>
+
+        <br/>
+        <h3>Screenshots</h3>
+        <ul>
+            {% for image in project.config.config_images %}
+                <img src="{{image}}">
+            {% endfor %}
+        </ul>
+
+        <br/>
+        <h3>Technologies Used</h3>
+        <ul>
+            {% for tag in project.config.config_tags %}
+                <li><h4>{{tag}}</h4></li>
+            {% endfor %}
+        </ul>
+
+        <br/>
+        <h3><a href="{{project.html_url}}">View on GitHub</a></h3>
+
+        {% if (project.homepage) %}
+          {{project.homepage}}
+      {% endif %}
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-8"></div>
     </div>
   </div>
 
-{% if (project.homepage) %}
-    {{project.homepage}}
-{% endif %}
 
 
 
-<h3>Created on: {{project.created_at}}</h3>
-<h3>Last commit: {{project.pushed_at}}</h3><br/>
-
-<h3>Contributors</h3>
-<ul>
-{% for contributor in project.config.contributors %}
-    <li><h4>{{contributor.config_full_name}}, {{contributor.config_role}}</h4></li>
-{% endfor %}
-</ul>
-
-<br/>
-<h3>Screenshots</h3>
-<ul>
-    {% for image in project.config.config_images %}
-        <img src="{{image}}">
-    {% endfor %}
-</ul>
-
-<br/>
-<h3>Technologies Used</h3>
-<ul>
-    {% for tag in project.config.config_tags %}
-        <li><h4>{{tag}}</h4></li>
-    {% endfor %}
-</ul>
-
-<br/>
-<h3><a href="{{project.html_url}}">View on GitHub</a></h3>
 
 {% endblock %}
