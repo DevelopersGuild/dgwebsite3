@@ -1,4 +1,4 @@
-{% extends 'partials/layout.html' %}
+{% extends 'partials/layoutMultipage.html' %}
 
 {% block content %}
   <section class="repos-main fluid-container">
@@ -10,11 +10,13 @@
   <div class="repos-list-container">
     <ul class="repos-list">
       {% for project in projects %}
+      <a href="/projects/{{project.name}}">
         <li>
           <h3>
-            <a href="/repositories/{{project.name}}">{{project.name}}</a>
+            {{project.name}}
           </h3>
         </li>
+      </a>
       {% endfor %}
     </ul>
   </div>

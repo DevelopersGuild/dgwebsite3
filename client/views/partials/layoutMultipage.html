@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="The Developers' Guild is a computer science club at De Anza College dedicated to creating awesome projects. Join today!"/>
+    <meta name="author" content="Rathna, Ilan, Ryan, Vihan, Grace">
+    <meta name="theme-color" content="#647389"/>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="css/lightbox.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <title>Developers' Guild - Build software at De Anza College</title>
+
+    <!-- Sections #about, #services, #contact -->
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- Main CSS stylesheet-->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->x
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Header -->
+  {% include "./headerMultipage.html" %}
+
+ <!-- Main Content Here -->
+  {% block content %} {% endblock %}
+
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Scrolling Nav JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/scrolling-nav.js"></script>
+
+<!-- Slack Invite JavaScript -->
+<script src="js/slack.js"></script>
+
+<!-- Lightbox.js -->
+<script src="js/lightbox.min.js"></script>
+
+<!-- Owl carousel -->
+<script src="js/owl.carousel.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<!-- Google Analytics Tag Begin -->
+<script type="text/javascript">/* <![CDATA[ */
+(function (d, s, a, i, j, r, l, m, t) {
+    try {
+        l = d.getElementsByTagName('a');
+        t = d.createElement('textarea');
+        for (i = 0; l.length - i; i++) {
+            try {
+                a = l[i].href;
+                s = a.indexOf('/cdn-cgi/l/email-protection');
+                m = a.length;
+                if (a && s > -1 && m > 28) {
+                    j = 28 + s;
+                    s = '';
+                    if (j < m) {
+                        r = '0x' + a.substr(j, 2) | 0;
+                        for (j += 2; j < m && a.charAt(j) != 'X'; j += 2)s += '%' + ('0' + ('0x' + a.substr(j, 2) ^ r).toString(16)).slice(-2);
+                        j++;
+                        s = decodeURIComponent(s) + a.substr(j, m - j)
+                    }
+                    t.innerHTML = s.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    l[i].href = 'mailto:' + t.value
+                }
+            } catch (e) {
+            }
+        }
+    } catch (e) {
+    }
+})(document);
+/* ]]> */</script>
+<!-- Google Analytics Tag End -->
+</body>
+
+</html>
