@@ -13,6 +13,8 @@ var app = express();
 var routes = require('./routes');
 var config = require('./config');
 
+var path = require('path');
+
 // SERVER_PORT is the serverport the app will run on for local host.
 var SERVER_PORT = 3030;
 
@@ -58,7 +60,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.set('views', './client/views');
 
 // Set path for assets
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Use routes path in express app
 app.use(routes);
