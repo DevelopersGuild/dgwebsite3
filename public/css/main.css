@@ -608,6 +608,11 @@ padding to text inside of parent container */
     color: white;
 }
 
+/* Individutal repo page */
+.repo-container {
+  margin-top: 50px;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 320px) {
