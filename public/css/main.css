@@ -124,9 +124,7 @@ body {
 
 /* sub header join button*/
 .sub-header-btn {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%); 
+  
 }
 
 .join-btn {
@@ -592,6 +590,10 @@ padding to text inside of parent container */
     .repos-header-text {
       bottom: 11%;
     }
+
+    .sub-header-btn {
+      padding: 2rem 0;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -676,6 +678,13 @@ padding to text inside of parent container */
     .project-header-img:nth-child(2),
     .project-header-img:nth-child(3) {
         display: inline-block;
+    }
+
+    .sub-header-btn {
+      padding: 0;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
     }
 }
 
