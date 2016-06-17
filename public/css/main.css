@@ -61,8 +61,8 @@ body {
 }
 
 .nav-button:hover {
-    transform: translate(5px, 8px);
-    box-shadow: none;
+    transform: translate(3px, 4px);
+    box-shadow: 2px 4px 0 0 #4D4856;
 }
 
 .nav-button:active {
@@ -524,6 +524,12 @@ padding to text inside of parent container */
 
 .repos-list li:hover {
   background-color: #98D1CD;
+  transform: translate(-8px, 7px);
+  box-shadow: -7px 6px 0 2px #4D4856;
+}
+
+.repos-list li:active {
+    box-shadow: inset -1px 0 13px 3px #4D4856;
 }
 
 .repos-list li h3 {
