@@ -16,13 +16,13 @@ router.get('/', function(req, res) {
 });
 
 // Route for list of repositories
-router.get('/repositories', Repositories.getRepositoryList);
+router.get('/projects', Repositories.getRepositoryList);
 
 // Test route to save info to the database
 router.get('/repositories/update', Repositories.saveRepo);
 
 // Route for individual repository pages
-router.get('/repositories/:id', Repositories.getRepository);
+router.get('/projects/:id', Repositories.getRepository);
 
 router.post('/invite', Slack.postSlackInvite);
 
