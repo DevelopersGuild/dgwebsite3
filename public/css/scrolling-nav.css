@@ -42,28 +42,3 @@ of those sections to manage the look and feel of the site. */
     height: 422px;
     /*padding: 20px 40px 15px 20px;*/
 }
-
-.intro-section {
-    height: 650px;
-    text-align: center;
-}
-
-.about-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #eee;
-}
-
-.services-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    background: #fff;
-}
-
-.contact-section {
-    height: 100%;
-    text-align: center;
-    background: #eee;
-}
