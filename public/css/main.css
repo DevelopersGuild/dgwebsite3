@@ -121,22 +121,21 @@ body {
     margin-bottom: 0;
 }
 
-
 /* sub header join button*/
 .sub-header-btn {
-  
+
 }
 
 .join-btn {
-  padding: 1rem 4rem;
+    padding: 1rem 4rem;
 
-  color: white;
-  background-color: #647389;
-  border-color: #78A19D;
-  border: 1px solid transparent;
+    color: white;
+    background-color: #647389;
+    border-color: #78A19D;
+    border: 1px solid transparent;
 
-  box-shadow: 0 3px 0 0 #5C5C6F;
-} 
+    box-shadow: 0 3px 0 0 #5C5C6F;
+}
 
 /* Slack Section */
 
@@ -148,8 +147,8 @@ body {
 }
 
 .slack-section {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .slack-header {
@@ -198,6 +197,47 @@ body {
 .slack-input-field {
     font-size: 1.5em;
     height: 2em;
+}
+
+/* About Section */
+
+.about-section {
+    margin: 0 auto;
+    max-width: 1200px;
+    background-size: cover;
+    background: url('../img/dg_main_red_background.png') no-repeat center;
+    padding-bottom: 8rem;
+}
+
+.about-header {
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    position: relative;
+    transform: skew(-4deg, -4deg) rotate(4deg);
+    font-family: Helvetica, sans-serif;
+    padding: 2rem 1rem;
+    box-shadow: 8px 12px 0 0 lightgrey;
+    color: darkslategray;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+}
+
+.about-header h2 {
+    font-weight: 800;
+}
+
+.about-container {
+    background-color: white;
+    color: darkslategrey;
+    font-size: 2em;
+    line-height: 2em;
+    border-radius: 25px;
+    box-shadow: 8px 12px 0 0 lightgrey;
+}
+
+.about-container p {
+    margin: 2rem 2rem 2rem 2rem;
 }
 
 /* Projects section */
@@ -376,7 +416,6 @@ padding to text inside of parent container */
     float: none;
     position: relative;
     top: 10%;
-    font-weight: 800;
     font-family: Helvetica, sans-serif;
     transform: translateY(-90%) skew(-4deg, -4deg) rotate(4deg);
     margin: 0 auto;
@@ -436,9 +475,12 @@ padding to text inside of parent container */
 /* Contact Section */
 
 .contact-section {
-  margin: 0 auto;
-  max-width: 1200px;
-  max-height: 768px;
+    margin: 0 auto;
+    max-width: 1200px;
+    max-height: 768px;
+    height: 100%;
+    text-align: center;
+    background: #eee;
 }
 
 .contact-container {
@@ -487,44 +529,44 @@ padding to text inside of parent container */
 }
 
 .repos-header-text {
-  color: white;
-  font-size: 4em;
+    color: white;
+    font-size: 4em;
 
-  position: absolute;
-  bottom: 6%;
-  right: 5%;
-  
-  /* line height 0 so it will blend into the border-bottom color */
-  line-height: 0;
-  margin: 0;
-  text-transform: uppercase
+    position: absolute;
+    bottom: 6%;
+    right: 5%;
+
+    /* line height 0 so it will blend into the border-bottom color */
+    line-height: 0;
+    margin: 0;
+    text-transform: uppercase
 }
 
 .repos-header-container {
-  margin: 0 auto;
-  max-width: 1200px;
+    margin: 0 auto;
+    max-width: 1200px;
 
-  position: relative;
-  height: 100%;
-  margin: 0 auto;
-  border: 0;
-  color: white;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    border: 0;
+    color: white;
 }
 
 /* repos list main body */
 
 .repos-list-container {
-  background-image: url('../img/background_index.png');
-  background-size: cover;
-  background-position: center;
+    background-image: url('../img/background_index.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .repos-list {
-  margin: 0 auto;
-  max-width: 1200px;
+    margin: 0 auto;
+    max-width: 1200px;
 
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 .repos-list li {
@@ -534,13 +576,13 @@ padding to text inside of parent container */
     border-radius: 5px;
     box-shadow: -15px 13px 0px 2px #4D4856;
 
-  background-color: #78A19D;
+    background-color: #78A19D;
 }
 
 .repos-list li:hover {
-  background-color: #98D1CD;
-  transform: translate(-8px, 7px);
-  box-shadow: -7px 6px 0 2px #4D4856;
+    background-color: #98D1CD;
+    transform: translate(-8px, 7px);
+    box-shadow: -7px 6px 0 2px #4D4856;
 }
 
 .repos-list li:active {
@@ -548,22 +590,22 @@ padding to text inside of parent container */
 }
 
 .repos-list li h3 {
-  margin: 0;
+    margin: 0;
 
     /*left border */
-  border-left: .5rem solid #C6D9DA;
-  padding: 1rem 0 1rem 2rem;
+    border-left: .5rem solid #C6D9DA;
+    padding: 1rem 0 1rem 2rem;
 }
 
 .repos-list a:link,
 .repos-link a:visited {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 .repos-list a:active,
 .repos-link a:hover {
-  color: white;
+    color: white;
 }
 
 /* Media Queries */
@@ -584,15 +626,15 @@ padding to text inside of parent container */
     }
 
     .repos-header {
-      height: 200px;
+        height: 200px;
     }
 
     .repos-header-text {
-      bottom: 11%;
+        bottom: 11%;
     }
 
     .sub-header-btn {
-      padding: 2rem 0;
+        padding: 2rem 0;
     }
 }
 
@@ -660,11 +702,11 @@ padding to text inside of parent container */
     }
 
     .repos-header {
-      height: 300px;
+        height: 300px;
     }
 
     .repos-header-text {
-      bottom: 6%;
+        bottom: 6%;
     }
 }
 
@@ -681,19 +723,19 @@ padding to text inside of parent container */
     }
 
     .sub-header-btn {
-      padding: 0;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
+        padding: 0;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 
 @media screen and (min-width: 1200px) {
-  .jumbotron-container {
-      height: auto;
-  }
+    .jumbotron-container {
+        height: auto;
+    }
 
-  .faq-parent-container {
-    padding: 2rem 5rem;
-  }
+    .faq-parent-container {
+        padding: 2rem 5rem;
+    }
 }
