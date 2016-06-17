@@ -1,7 +1,7 @@
 {
   "config": {
     "config_date": "Spring 2016",
-    "config_description": "Creating a node app from the beginning use node/express/mongodb",
+    "config_description": "Creating a node.js app from the beginning using node/express/mongodb",
     "config_images": [
       "https://cdn.theatlantic.com/assets/media/img/photo/2015/11/images-from-the-2016-sony-world-pho/s01_130921474920553591/main_900.jpg?1448476701",
       "http://i.dailymail.co.uk/i/pix/2016/03/22/13/32738A6E00000578-3504412-image-a-6_1458654517341.jpg"
