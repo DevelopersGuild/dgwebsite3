@@ -25,7 +25,7 @@ body {
 
 .big-ass-tv {
     overflow: hidden;
-    height: 100%;
+    max-height: 100%;
     background: #2C2420 none;
     border: 2rem solid #5C5C6F;
     -webkit-box-shadow: 5px 8px 0px 0px rgba(76, 64, 81, 1);
@@ -34,6 +34,8 @@ body {
 }
 
 .intro-section {
+    max-width: 1200px;
+    margin: 0 auto;
     background-size: cover;
     background: url('../img/dg_main_yellow_background.png') no-repeat center;
     height: auto;
@@ -80,6 +82,7 @@ body {
 
 .sub-header {
     width: 100%;
+    margin: 0 auto;
     background-color: #78A19D;
     /* box shadow styling */
     -webkit-box-shadow: 0px 10px 0px 5px #60505a;
@@ -121,16 +124,14 @@ body {
 
 /* sub header join button*/
 .sub-header-btn {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%); 
+  
 }
 
 .join-btn {
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
 
-  /*color: white;*/
-  background-color: #C6D9DA;
+  color: white;
+  background-color: #647389;
   border-color: #78A19D;
   border: 1px solid transparent;
 
@@ -147,6 +148,8 @@ body {
 }
 
 .slack-section {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .slack-header {
@@ -240,6 +243,8 @@ body {
 /* Projects section */
 
 .projects-section {
+    max-width: 1200px;
+    margin: 0 auto;
     background-size: cover;
     background: url('../img/dg_main_green_background.png') no-repeat center;
 }
@@ -347,6 +352,8 @@ will make it so project items don't stay on the same row
 /* FAQ SECTION */
 
 .faq-section {
+    margin: 0 auto;
+    max-width: 1200px;
     background-size: cover;
     background: url('../img/dg_main_yellow_background.png') no-repeat center;
 }
@@ -395,6 +402,8 @@ padding to text inside of parent container */
 /* Gallery/Lightbox/Carousel */
 
 .gallery-section {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 200px 0;
     background-size: cover;
     background: url('../img/dg_main_red_background.png') no-repeat center;
@@ -464,6 +473,12 @@ padding to text inside of parent container */
 }
 
 /* Contact Section */
+
+.contact-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  max-height: 768px;
+}
 
 .contact-container {
     position: relative;
@@ -614,6 +629,10 @@ padding to text inside of parent container */
     .repos-header-text {
       bottom: 11%;
     }
+
+    .sub-header-btn {
+      padding: 2rem 0;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -699,4 +718,21 @@ padding to text inside of parent container */
     .project-header-img:nth-child(3) {
         display: inline-block;
     }
+
+    .sub-header-btn {
+      padding: 0;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+  .jumbotron-container {
+      height: auto;
+  }
+
+  .faq-parent-container {
+    padding: 2rem 5rem;
+  }
 }
