@@ -197,6 +197,46 @@ body {
     height: 2em;
 }
 
+/* About Section */
+
+.about-section {
+    margin: 0 auto;
+    max-width: 1200px;
+    background-size: cover;
+    background: url('../img/dg_main_red_background.png') no-repeat center;
+}
+
+.about-header {
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%) skew(-4deg, -4deg) rotate(4deg);
+    font-family: Helvetica, sans-serif;
+    padding: 2rem 1rem;
+    box-shadow: 8px 12px 0 0 lightgrey;
+    color: darkslategray;
+}
+
+.about-header h2 {
+    font-weight: 800;
+}
+
+.about-container {
+    background-color: white;
+    color: darkslategrey;
+    font-size: 2em;
+    line-height: 2em;
+    border-radius: 25px;
+    box-shadow: 8px 12px 0 0 lightgrey;
+    margin-top: 2em;
+}
+
+.about-container p {
+    margin: 2rem 2rem 2rem 3rem;
+}
+
 /* Projects section */
 
 .projects-section {
@@ -367,7 +407,6 @@ padding to text inside of parent container */
     float: none;
     position: relative;
     top: 10%;
-    font-weight: 800;
     font-family: Helvetica, sans-serif;
     transform: translateY(-90%) skew(-4deg, -4deg) rotate(4deg);
     margin: 0 auto;
