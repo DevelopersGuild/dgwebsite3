@@ -350,7 +350,7 @@ padding to text inside of parent container */
     top: 10%;
     font-weight: 800;
     font-family: Helvetica, sans-serif;
-    transform: translateY(-90%) skew(-6deg, -6deg) rotate(6deg);
+    transform: translateY(-90%) skew(-4deg, -4deg) rotate(4deg);
     margin: 0 auto;
     padding: 2rem 1rem;
     box-shadow: 8px 12px 0 0 lightgrey;
