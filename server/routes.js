@@ -24,6 +24,10 @@ router.get('/repositories/update', Repositories.saveRepo);
 // Route for individual repository pages
 router.get('/projects/:id', Repositories.getRepository);
 
+router.get('/calendar', function(req, res) {
+    res.redirect('https://calendar.google.com/calendar/embed?src=deanzadevelopersguild%40gmail.com');
+});
+
 router.post('/invite', Slack.postSlackInvite);
 
 // Export routes
