@@ -10,7 +10,7 @@ var Schema = mongoose.Schema;
 // if config is prefixed to the field it means we will be getting it from
 // the individiual project's config file(if they provide one.)
 var repositorySchema = new Schema({
-  name              : { type: String },
+  name              : { type: String, maxlength: 100 },
   full_name         : { type: String, unique: true },
   html_url          : { type: String },
   contributors_url  : { type: String },
