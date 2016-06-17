@@ -27,7 +27,7 @@ exports.getRepository = function (req, res) {
     }, function (err, repository) {
         if (err) return res.send(err);
 
-        res.render('repositories/show', {
+        res.render('pages/repositoryPage/index', {
             project: repository
         });
     })

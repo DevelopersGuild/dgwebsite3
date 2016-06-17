@@ -63,26 +63,16 @@ app.use(express.static('public'));
 // Use routes path in express app
 app.use(routes);
 
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+// Handle 404
+app.use(function(req, res) {
+    res.status(400);
+  res.send('404 error');
 });
 
-//development error handler
-//will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.send('404');
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.send('500');
+// Handle 500
+app.use(function(error, req, res, next) {
+    res.status(500);
+    res.send('500 error');
 });
 
 // Run jobs
