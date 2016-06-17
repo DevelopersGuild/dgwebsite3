@@ -436,7 +436,7 @@ padding to text inside of parent container */
 
 .repos-main {
     /*padding-top: 100px;*/
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     margin: 0 auto;
 }
 
@@ -467,11 +467,14 @@ padding to text inside of parent container */
 }
 
 .repos-header-container {
-    position: relative;
-    height: 100%;
-    margin: 0 auto;
-    border: 0;
-    color: white;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  border: 0;
+  color: white;
 }
 
 /* repos list main body */
@@ -483,8 +486,11 @@ padding to text inside of parent container */
 }
 
 .repos-list {
-    list-style-type: none;
-    padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  list-style-type: none;
+  padding: 0;
 }
 
 .repos-list li {
