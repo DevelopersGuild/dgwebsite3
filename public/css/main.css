@@ -12,7 +12,8 @@ body {
 
 /* Navbar header */
 
-.li-pipes {
+li.li-pipes {
+    display: none;
     color: #f6f5f4;
     padding: 15px 0 15px 0;
 }
@@ -317,8 +318,8 @@ body {
 .projects-list {
     list-style: none;
     color: #fff;
+    padding-left: 0;
 }
-
 /* project categories */
 
 .project-category-header {
@@ -400,6 +401,10 @@ padding to text inside of parent container */
 }
 
 /* Gallery/Lightbox/Carousel */
+
+.gallery-section > .row {
+  max-width: 100%
+}
 
 .gallery-section {
     max-width: 1200px;
@@ -502,6 +507,10 @@ padding to text inside of parent container */
     display: block;
     font-family: "Open Sans", sans-serif;
     text-align: center;
+}
+
+.contact-title p {
+  font-size: 0.8em;
 }
 
 .contact-title a {
@@ -641,6 +650,12 @@ padding to text inside of parent container */
     .sub-header-btn {
         padding: 2rem 0;
     }
+}
+
+@media screen and (min-width: 480px) {
+  li.li-pipes {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 600px) {
