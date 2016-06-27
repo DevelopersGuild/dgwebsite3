@@ -129,13 +129,17 @@ li.li-pipes {
 
 .join-btn {
     padding: 1rem 4rem;
-
+    
     color: white;
     background-color: #647389;
     border-color: #78A19D;
     border: 1px solid transparent;
 
     box-shadow: 0 3px 0 0 #5C5C6F;
+    
+    display: block;
+    margin: 0 auto;
+    width: 50%;
 }
 
 /* Slack Section */
@@ -735,7 +739,7 @@ padding to text inside of parent container */
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 992px) {
     /* Project header images */
     .project-header-img {
         width: 33.333%;
@@ -753,6 +757,13 @@ padding to text inside of parent container */
         top: 50%;
         transform: translateY(-50%);
     }
+
+    /* join btn in sub header */
+    .join-btn {
+        display: inline-block;
+        margin: auto;
+        width: auto;
+      }
 }
 
 @media screen and (min-width: 1200px) {
