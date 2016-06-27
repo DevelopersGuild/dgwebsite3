@@ -55,8 +55,11 @@ li.li-pipes {
 }
 
 .nav-button {
+    padding: 6rem 0;
+    margin: 0 2.5rem;
+    margin-bottom: 2rem;
+
     text-align: center;
-    padding: 10rem 0;
     background-color: #78A19D;
     border-radius: 2px;
     border: 2px solid #C6D9DA;
@@ -740,6 +743,8 @@ padding to text inside of parent container */
     }
 
     .nav-button {
+        padding: 10rem 0;
+        margin: 0 auto;
         width: 32.266667%;
         margin-left: 1.6%;
     }
