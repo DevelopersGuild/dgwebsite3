@@ -233,6 +233,7 @@ li.li-pipes {
 }
 
 .about-container {
+    padding: 2rem;
     background-color: white;
     color: darkslategrey;
     font-size: 2em;
@@ -242,7 +243,8 @@ li.li-pipes {
 }
 
 .about-container p {
-    margin: 2rem 2rem 2rem 2rem;
+    line-height: 1.5em;
+    font-size: 0.8em;
 }
 
 /* Projects section */
@@ -677,6 +679,12 @@ padding to text inside of parent container */
     /* repos list */
     .repos-list-container {
         padding: 3rem;
+    }
+
+    /*about section*/
+
+    .about-container p {
+      margin: 2rem;
     }
 }
 
