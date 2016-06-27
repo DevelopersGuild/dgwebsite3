@@ -44,7 +44,7 @@ li.li-pipes {
 }
 
 .intro-container {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 /* Navigation section */
@@ -659,6 +659,7 @@ padding to text inside of parent container */
 }
 
 @media screen and (min-width: 600px) {
+
     /* Project header images */
     .project-header-img {
         width: 50%;
@@ -675,8 +676,12 @@ padding to text inside of parent container */
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
     /* intro section */
+    .intro-container {
+      padding-top: 100px;
+    }
+
     .jumbotron-container {
         height: 60vh;
     }
