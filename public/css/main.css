@@ -214,6 +214,11 @@ li.li-pipes {
     padding-bottom: 8rem;
 }
 
+/* Adding to prevent extra margin on mobile screens */
+.about-section .container .row {
+  padding: 1.5rem;
+}
+
 .about-header {
     background-color: white;
     border-radius: 25px;
@@ -262,6 +267,10 @@ li.li-pipes {
     background-color: #f6f5f4;
     height: 300px;
     position: relative;
+}
+
+.project-header-container {
+  margin-bottom: 5rem;
 }
 
 .projects-header-text {
@@ -347,9 +356,9 @@ will make it so project items don't stay on the same row
     height: 28rem;
 }
 
-.pl-1x1 li {
+/*.pl-1x1 li {
     height: 31rem;
-}
+}*/
 
 .projects-list li img {
     width: 100%;
@@ -636,9 +645,9 @@ padding to text inside of parent container */
         height: 28rem;
     }
 
-    .pl-1x1 li {
+   /* .pl-1x1 li {
         height: 31rem;
-    }
+    }*/
 
     /* repos list */
     .repos-list-container {
@@ -685,6 +694,13 @@ padding to text inside of parent container */
 
     .about-container p {
       margin: 2rem;
+    }
+    
+    /* skewing the about section adds extra right-margin on mobile
+       this is to fix it as by default extra padding is added to stop
+       extra margin from being added on mobile screens */
+    .about-section .container .row {
+      padding: auto;
     }
 }
 
