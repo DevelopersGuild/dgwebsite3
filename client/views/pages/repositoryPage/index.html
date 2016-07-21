@@ -28,17 +28,21 @@
         
         
         {% if (project.config.config_description) %}
-        <h3>
+        <p>
           {{project.config.config_description}}
-        </h3>
+        </p>
+        {% else %}
+        <p>
+          {{project.description}}
+        </p>
         {% endif %}
         
        
-          {% if (project.config.config_description) %}
-           <h3>
-            {{project.config.config_date}}
-           </h3><br/>
-          {% endif %}
+        {% if (project.config.config_description) %}
+          <h3>
+          {{project.config.config_date}}
+          </h3><br/>
+        {% endif %}
        
 
 

@@ -12,6 +12,7 @@ var Schema = mongoose.Schema;
 var repositorySchema = new Schema({
   name              : { type: String, maxlength: 100 },
   full_name         : { type: String, unique: true },
+  description       : { type: String, maxlength: 100 },
   html_url          : { type: String },
   contributors_url  : { type: String },
   created_at        : { type: Date },
