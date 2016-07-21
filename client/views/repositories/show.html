@@ -30,6 +30,8 @@
 </ul>
 
 <br/>
+
+{% if project.config.config_images.length > 0 %}
 <h3>Screenshots</h3>
 <ul>
     {% for image in project.config.config_images %}
@@ -38,6 +40,7 @@
 </ul>
 
 <br/>
+{% endif %}
 <h3>Technologies Used</h3>
 <ul>
     {% for tag in project.config.config_tags %}

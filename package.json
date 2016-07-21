@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start":"node server/server.js",
     "test": "mocha --recursive"
   },
   "author": "",
