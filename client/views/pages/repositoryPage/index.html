@@ -21,6 +21,9 @@
             <i class="fa fa-code-fork" aria-hidden="true"></i> {{project.forks_count}}
           </div>
         </div>
+
+        <span class="meta create-date">Created on: {{project.created_at.toDateString()}}</span><br>
+        <span class="meta commit-date">Last commit: {{project.pushed_at.toDateString()}}</span>
       </div>
 
       <!-- main content -->
@@ -43,11 +46,6 @@
           {{project.config.config_date}}
           </h3><br/>
         {% endif %}
-       
-
-
-        <h3>Created on: {{project.created_at}}</h3>
-        <h3>Last commit: {{project.pushed_at}}</h3><br/>
 
         <!-- contributors -->
         {% if project.config.contributors.length %}
